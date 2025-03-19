@@ -14,9 +14,20 @@ author = 'fishros'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-     'recommonmark',
-     'sphinx_markdown_tables'
- ]
+    'recommonmark',  # Replace 'recommonmark' with this
+    # 'sphinx_markdown_tables',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.todo',
+    'sphinx.ext.autosummary',
+]
+
+# Add these settings for better table support
+# source_suffix = {
+#     '.rst': 'restructuredtext',
+#     '.md': 'markdown',
+# }
 
 templates_path = ['_templates']
 exclude_patterns = []
