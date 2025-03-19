@@ -10,3 +10,4 @@ ROS is loved by robot developers for good reason. Next, let's look at ROS from a
     :maxdepth: 3
 
     chapter1_1_1
+    chapter1_1_2
