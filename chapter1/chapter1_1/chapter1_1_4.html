@@ -1,0 +1,167 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.1.4 Features of ROS 2 Robot Development &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="About" href="../../about.html" />
+    <link rel="prev" title="1.1.3 Released Versions of ROS 2" href="chapter1_1_3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter1.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter1_1.html">1.1 Introduction to the ROS Community</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter1_1_1.html">1.1.1 Robot and ROS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_1_2.html">1.1.2 ROS 2 System Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_1_3.html">1.1.3 Released Versions of ROS 2</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.1.4 Features of ROS 2 Robot Development</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#four-core-communication-mechanisms">1.1.4.1 Four Core Communication Mechanisms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rich-debugging-tools">1.1.4.2 Rich Debugging Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-and-kinematics-tools">1.1.4.3 Modeling and Kinematics Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#strong-open-source-community-and-application-frameworks">1.1.4.4 Strong Open-Source Community and Application Frameworks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+          <li class="breadcrumb-item"><a href="chapter1_1.html">1.1 Introduction to the ROS Community</a></li>
+      <li class="breadcrumb-item active">1.1.4 Features of ROS 2 Robot Development</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter1/chapter1_1/chapter1_1_4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="features-of-ros-2-robot-development">
+<span id="ros2-robot-development-features"></span><h1>1.1.4 Features of ROS 2 Robot Development<a class="headerlink" href="#features-of-ros-2-robot-development" title="Link to this heading"></a></h1>
+<p>Get your gear ready, and you are about to embark on a journey into robot development based on ROS 2. But hold on a moment! Before we set off, let’s take a look at what ROS 2 has prepared for us to help us build a powerful robot.</p>
+<section id="four-core-communication-mechanisms">
+<h2>1.1.4.1 Four Core Communication Mechanisms<a class="headerlink" href="#four-core-communication-mechanisms" title="Link to this heading"></a></h2>
+<p>The four core communication mechanisms of ROS 2 are Topics, Services, Parameters, and Actions.</p>
+<ul class="simple">
+<li><p><strong>Topics</strong>: Topic communication refers to a Publish-Subscribe communication pattern. Publishers send messages to a specific topic, and Subscribers receive the messages by subscribing to that topic. The data flow is unidirectional. For example, we can publish the robot’s position information to a topic with a specific name, and by subscribing to that topic, we can obtain the robot’s position information.</p></li>
+<li><p><strong>Services</strong>: Compared to topic communication, service communication is bidirectional. Service communication consists of a Service Server and a Service Client. The client sends requests to the server, which processes the requests and returns the results.</p></li>
+<li><p><strong>Actions</strong>: Action communication also involves an Action Client and an Action Server. Unlike service communication, the Action Server can provide feedback on the progress of processing the client’s request and can be canceled at any time. Action communication is often used for complex robot behaviors.</p></li>
+<li><p><strong>Parameters</strong>: Parameter communication is mainly used for setting and reading robot parameters.</p></li>
+</ul>
+</section>
+<section id="rich-debugging-tools">
+<h2>1.1.4.2 Rich Debugging Tools<a class="headerlink" href="#rich-debugging-tools" title="Link to this heading"></a></h2>
+<p>In addition to the core communication mechanisms, ROS 2 also provides a wide range of visualization and debugging tools:</p>
+<ul class="simple">
+<li><p><strong>RViz</strong>: For 3D visualization.</p></li>
+<li><p><strong>rqt series tools</strong>: For visualizing charts, images, and other data.</p></li>
+<li><p><strong>ros2 bag</strong>: For recording and replaying data.</p></li>
+</ul>
+</section>
+<section id="modeling-and-kinematics-tools">
+<h2>1.1.4.3 Modeling and Kinematics Tools<a class="headerlink" href="#modeling-and-kinematics-tools" title="Link to this heading"></a></h2>
+<p>ROS 2 provides essential tools for robot development:</p>
+<ul class="simple">
+<li><p><strong>TF tool</strong>: For kinematics coordinate transformation and management.</p></li>
+<li><p><strong>URDF file format</strong>: For describing the structure, joints, sensors, and other information of a robot.</p></li>
+</ul>
+</section>
+<section id="strong-open-source-community-and-application-frameworks">
+<h2>1.1.4.4 Strong Open-Source Community and Application Frameworks<a class="headerlink" href="#strong-open-source-community-and-application-frameworks" title="Link to this heading"></a></h2>
+<p>In addition to the core tools provided by ROS 2 itself, the open-source community has developed a rich set of tools and frameworks based on ROS 2:</p>
+<ul class="simple">
+<li><p><strong>Gazebo</strong>: A powerful simulation tool.</p></li>
+<li><p><strong>Navigation 2</strong>: An application framework for mobile robot navigation.</p></li>
+<li><p><strong>Moveit 2</strong>: An application framework for robotic arm motion planning.</p></li>
+</ul>
+<p>With such a rich set of tools provided by ROS 2, you don’t have to worry about not being able to develop a powerful robot. That’s it for the theoretical introduction. I believe you are already eager to start your journey in robot development. So let’s get started now!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter1_1_3.html" class="btn btn-neutral float-left" title="1.1.3 Released Versions of ROS 2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
