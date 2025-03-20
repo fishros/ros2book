@@ -6,7 +6,7 @@ When I first started job hunting and attended interviews, the interviewer asked,
 As shown in Figure 1-1, your skin is equivalent to a robot's sensors, such as a temperature sensor that can measure temperature; your muscles are like a robot's actuators, such as a servo motor that can control angles; and the brain corresponds to a robot's decision-making system. The nerves connecting the skin, muscles, and brain are analogous to a neural network. It's easy to see that ROS's role in a robot is to send sensor data to the decision-making system and then relay the decision-making system's output to the actuators for execution.
 
 .. figure:: figure1-1.png
-    :alt: Comparison of Robot and Human Behavior
+    :alt: Comparison between Robot and Human Behavior.
 
     Figure 1-1 Comparison of Robot and Human Behavior
 
