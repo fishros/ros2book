@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.1.3 Released Versions of ROS 2 &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+  <title>1.2.4 Installing ROS 2 &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -20,8 +20,8 @@
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.1.4 Features of ROS 2 Robot Development" href="chapter1_1_4.html" />
-    <link rel="prev" title="1.1.2 ROS 2 System Architecture" href="chapter1_1_2.html" /> 
+    <link rel="next" title="About" href="../../about.html" />
+    <link rel="prev" title="1.2.3 Installing Ubuntu 22.04 in the Virtual Machine" href="chapter1_2_3.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,14 +47,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../chapter1.html">Introduction</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="chapter1_1.html">1.1 Introduction to the ROS Community</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="chapter1_1_1.html">1.1.1 Robot and ROS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chapter1_1_2.html">1.1.2 ROS 2 System Architecture</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1.1.3 Released Versions of ROS 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chapter1_1_4.html">1.1.4 Features of ROS 2 Robot Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1_1/chapter1_1.html">1.1 Introduction to the ROS Community</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter1_2.html">1.2 Setting Up the Development Environment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter1_2_1.html">1.2.1 Preparing Required Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_2_2.html">1.2.2 Installing the Virtual Machine VirtualBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_2_3.html">1.2.3 Installing Ubuntu 22.04 in the Virtual Machine</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.4 Installing ROS 2</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1_2/chapter1_2.html">1.2 Setting Up the Development Environment</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
@@ -75,10 +75,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
-          <li class="breadcrumb-item"><a href="chapter1_1.html">1.1 Introduction to the ROS Community</a></li>
-      <li class="breadcrumb-item active">1.1.3 Released Versions of ROS 2</li>
+          <li class="breadcrumb-item"><a href="chapter1_2.html">1.2 Setting Up the Development Environment</a></li>
+      <li class="breadcrumb-item active">1.2.4 Installing ROS 2</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/chapter1/chapter1_1/chapter1_1_3.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/chapter1/chapter1_2/chapter1_2_4.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -86,65 +86,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="released-versions-of-ros-2">
-<h1>1.1.3 Released Versions of ROS 2<a class="headerlink" href="#released-versions-of-ros-2" title="Link to this heading"></a></h1>
-<p>Table 1-1 lists the current main ROS 2 distributions and their end-of-life dates. By the time you see this table, there may already be new ROS 2 versions released. For the latest data, you can visit <a class="reference external" href="http://docs.ros.org/en/humble/Releases.html">Distributions — ROS 2 Documentation: Humble documentation</a>.</p>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-text">ROS 2 Version Release and Maintenance Information (as of May 2023)</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
-<thead>
-<tr class="row-odd"><th class="head"><p>Version Name</p></th>
-<th class="head"><p>Release</p></th>
-<th class="head"><p>End of Maintenance Date</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Ardent Apalone</p></td>
-<td><p>2017-12-08</p></td>
-<td><p>2018-12</p></td>
-</tr>
-<tr class="row-odd"><td><p>Bouncy Bolson</p></td>
-<td><p>2018-07-02</p></td>
-<td><p>2019-07</p></td>
-</tr>
-<tr class="row-even"><td><p>Crystal Clemmys</p></td>
-<td><p>2018-12-14</p></td>
-<td><p>2019-12</p></td>
-</tr>
-<tr class="row-odd"><td><p>Dashing Diademata</p></td>
-<td><p>2019-05-31</p></td>
-<td><p>2021-05</p></td>
-</tr>
-<tr class="row-even"><td><p>Eloquent Elusor</p></td>
-<td><p>2019-11-22</p></td>
-<td><p>2020-11</p></td>
-</tr>
-<tr class="row-odd"><td><p>Foxy Fitzroy</p></td>
-<td><p>2020-06-05</p></td>
-<td><p>2023-05</p></td>
-</tr>
-<tr class="row-even"><td><p>Galactic Geochelone</p></td>
-<td><p>2021-05-23</p></td>
-<td><p>2022-12-09</p></td>
-</tr>
-<tr class="row-odd"><td><p>Humble Hawksbill</p></td>
-<td><p>2022-05-23</p></td>
-<td><p>2027-05</p></td>
-</tr>
-<tr class="row-even"><td><p>Iron Irwini</p></td>
-<td><p>2023-05-31</p></td>
-<td><p>2024-11</p></td>
-</tr>
-</tbody>
-</table>
-<p>From the table, it can be seen that Humble Hawksbill is the first ROS 2 version with a 5-year long-term support, so this book will be based on this version for learning.</p>
+  <section id="installing-ros-2">
+<h1>1.2.4 Installing ROS 2<a class="headerlink" href="#installing-ros-2" title="Link to this heading"></a></h1>
+<p>After completing the installation of Ubuntu, we can proceed to install ROS 2 on this system. There are two methods to install the ROS 2 binary packages: manually or by using an installation tool. For beginners, using the installation tool is more convenient, so we will directly use the installation tool for installation.</p>
+<p>In the Ubuntu system, right-click on a blank area of the desktop and select “Open in Terminal” to open the terminal as shown in Figure 1-18. All our subsequent operations will be performed in this black box, which somewhat resembles the terminals used by hackers in movies, doesn’t it?</p>
+<figure class="align-default" id="id1">
+<img alt="Ubuntu Terminal" src="../../_images/figure1-17.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1-17 Ubuntu Terminal</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="chapter1_1_2.html" class="btn btn-neutral float-left" title="1.1.2 ROS 2 System Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="chapter1_1_4.html" class="btn btn-neutral float-right" title="1.1.4 Features of ROS 2 Robot Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="chapter1_2_3.html" class="btn btn-neutral float-left" title="1.2.3 Installing Ubuntu 22.04 in the Virtual Machine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

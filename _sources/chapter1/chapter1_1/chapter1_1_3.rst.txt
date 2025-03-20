@@ -3,10 +3,10 @@
 
 Table 1-1 lists the current main ROS 2 distributions and their end-of-life dates. By the time you see this table, there may already be new ROS 2 versions released. For the latest data, you can visit `Distributions — ROS 2 Documentation: Humble documentation <http://docs.ros.org/en/humble/Releases.html>`_.
 
-.. table:: ROS 2版本发布与维护信息（截至2023年5月）
+.. table:: ROS 2 Version Release and Maintenance Information (as of May 2023)
 
     ====================  ================  ================
-    版本名称              发布日期          停止维护日期
+    Version Name             Release         End of Maintenance Date
     ====================  ================  ================
     Ardent Apalone        2017-12-08        2018-12
     Bouncy Bolson         2018-07-02        2019-07
