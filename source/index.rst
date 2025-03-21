@@ -18,4 +18,5 @@ Robot development is a complex system engineering task. ROS 2 offers strong supp
    :caption: Contents:
 
    chapter1/index
+   chapter2/index
    about

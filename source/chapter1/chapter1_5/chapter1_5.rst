@@ -1,0 +1,4 @@
+1.5 Chapter Summary and Review
+==============================
+
+By now, you must be feeling quite pleased because you’ve already taken the first step into the world of robotics development. Through this chapter, you’ve gained a deeper understanding of ROS 2, successfully set up a virtual machine and the ROS 2 development environment, and explored ROS 2’s communication mechanisms and debugging tools using the turtle simulator. At the end of the chapter, you also learned the basics of Linux terminal operations and how to program in the Linux terminal. After completing all this, you must feel very accomplished. However, don’t settle just yet—there’s a big difference between understanding ROS 2 and mastering it. To become an excellent ROS 2 developer, you’ll need to invest more time and effort. Now, let’s get ready to dive into Chapter 2!
