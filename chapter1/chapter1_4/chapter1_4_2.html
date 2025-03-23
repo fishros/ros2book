@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.4.2 Installing Software in Linux &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.4.3 Writing Python Programs in Linux" href="chapter1_4_3.html" />
+    <link rel="prev" title="1.4.1 Basic Linux Terminal Operations" href="chapter1_4_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter1.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1_1/chapter1_1.html">1.1 Introduction to the ROS Community</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1_2/chapter1_2.html">1.2 Setting Up the Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1_3/chapter1_3.html">1.3 Running Your First Robot</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter1_4.html">1.4 Linux Basics for ROS 2</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter1_4_1.html">1.4.1 Basic Linux Terminal Operations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.4.2 Installing Software in Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_4_3.html">1.4.3 Writing Python Programs in Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_4_4.html">1.4.4 Writing C++ Programs in Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter1_4_5.html">1.4.5 Linux Basics: Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1_5/chapter1_5.html">1.5 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+          <li class="breadcrumb-item"><a href="chapter1_4.html">1.4 Linux Basics for ROS 2</a></li>
+      <li class="breadcrumb-item active">1.4.2 Installing Software in Linux</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter1/chapter1_4/chapter1_4_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-software-in-linux">
+<h1>1.4.2 Installing Software in Linux<a class="headerlink" href="#installing-software-in-linux" title="Link to this heading"></a></h1>
+<p>When installing ROS 2, we used an installation tool to quickly complete the process. However, not all software comes with such an installation tool, so it’s important to master other installation methods. Here, we’ll try installing VS Code, an editor we’ll use in subsequent development, by downloading its installation package.</p>
+<p>First, open the Firefox browser from the top-left corner of the Linux desktop and visit the official VS Code website at <a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>. The download interface is shown in Figure 1-24.</p>
+<figure class="align-default" id="id1">
+<img alt="VS Code Download Interface" src="../../_images/figure1-24.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1-24 VS Code Download Interface</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Click the blue <cite>.deb</cite> button to start the download. The file will be downloaded to the <cite>~/Downloads</cite> directory by default. After the download is complete, you’ll notice that the software installation package on Ubuntu has a <cite>.deb</cite> extension. Let’s proceed to install it.</p>
+<p>Open a new terminal and enter the command in Listing 1-18 to install VS Code. Note that the file name depends on the version you downloaded. Here, we use the <cite>sudo dpkg -i</cite> command to install the software. <cite>dpkg</cite> is a package management tool in Ubuntu used to install, view, and uninstall software packages. Adding <cite>sudo</cite> before <cite>dpkg</cite> means executing the command with administrator privileges, and the <cite>-i</cite> after <cite>dpkg</cite> stands for installation.</p>
+<p><strong>Listing 1-18: Installing VS Code Using dpkg</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/Downloads<span class="w">  </span><span class="c1"># Use Win + Space to switch between Chinese and English input methods</span>
+$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>./code_1.77.0-1680085573_amd64.deb
+---
+<span class="o">[</span>sudo<span class="o">]</span><span class="w"> </span>password<span class="w"> </span><span class="k">for</span><span class="w"> </span>fishros:
+<span class="o">(</span>Reading<span class="w"> </span>database<span class="w"> </span>...<span class="w"> </span><span class="m">279532</span><span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>directories<span class="w"> </span>currently<span class="w"> </span>installed.<span class="o">)</span>
+Preparing<span class="w"> </span>to<span class="w"> </span>unpack<span class="w"> </span>.../code_1.77.3-1681292746_amd64.deb<span class="w"> </span>...
+...
+</pre></div>
+</div>
+<p>Using <cite>dpkg</cite>, you can directly install downloaded <cite>.deb</cite> packages. Another more advanced package management tool, <cite>apt</cite>, can automatically download and install software by its name. As an example, let’s install <cite>git</cite>, a version control tool we’ll use in later learning.</p>
+<p>Enter the <cite>git</cite> command in the terminal, as shown in Listing 1-19. At this point, it will show that the command is not found and suggest using the <cite>apt</cite> command to install it.</p>
+<p><strong>Listing 1-19: Testing the git Command</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git
+---
+Command<span class="w"> </span><span class="s1">&#39;git&#39;</span><span class="w"> </span>not<span class="w"> </span>found,<span class="w"> </span>but<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>installed<span class="w"> </span>with:
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+<p>Following the prompt in Listing 1-19, enter the installation command in Listing 1-20.</p>
+<p><strong>Listing 1-20: Installing git Using apt</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+---
+...
+Need<span class="w"> </span>to<span class="w"> </span>get<span class="w"> </span><span class="m">3</span>,166<span class="w"> </span>kB<span class="w"> </span>of<span class="w"> </span>archives.
+After<span class="w"> </span>unpacking,<span class="w"> </span><span class="m">18</span>.9<span class="w"> </span>MB<span class="w"> </span>of<span class="w"> </span>additional<span class="w"> </span>disk<span class="w"> </span>space<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>used.
+Get:1<span class="w"> </span>https://mirrors.ustc.edu.cn/ubuntu<span class="w"> </span>jammy-updates/main<span class="w"> </span>amd64<span class="w"> </span>git<span class="w"> </span>amd64<span class="w"> </span><span class="m">1</span>:2.34.1-1ubuntu1.10<span class="w"> </span><span class="o">[</span><span class="m">3</span>,166<span class="w"> </span>kB<span class="o">]</span>
+Fetched<span class="w"> </span><span class="m">3</span>,166<span class="w"> </span>kB<span class="w"> </span><span class="k">in</span><span class="w"> </span>0s<span class="w"> </span><span class="o">(</span><span class="m">16</span>.6<span class="w"> </span>MB/s<span class="o">)</span>
+Selecting<span class="w"> </span>previously<span class="w"> </span>unselected<span class="w"> </span>package<span class="w"> </span>git.
+<span class="o">(</span>Reading<span class="w"> </span>database<span class="w"> </span>...<span class="w"> </span><span class="m">291143</span><span class="w"> </span>files<span class="w"> </span>and<span class="w"> </span>directories<span class="w"> </span>currently<span class="w"> </span>installed.<span class="o">)</span>
+Preparing<span class="w"> </span>to<span class="w"> </span>unpack<span class="w"> </span>.../git_1%3a2.34.1-1ubuntu1.10_amd64.deb<span class="w"> </span>...
+Unpacking<span class="w"> </span>git<span class="w"> </span><span class="o">(</span><span class="m">1</span>:2.34.1-1ubuntu1.10<span class="o">)</span><span class="w"> </span>...
+Setting<span class="w"> </span>up<span class="w"> </span>git<span class="w"> </span><span class="o">(</span><span class="m">1</span>:2.34.1-1ubuntu1.10<span class="o">)</span><span class="w"> </span>...
+</pre></div>
+</div>
+<p>After the installation is complete, enter the <cite>git</cite> command again to test it. This time, it will not show that the command is not found, as shown in Listing 1-21.</p>
+<p><strong>Listing 1-21: Testing git After Installation</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git
+---
+usage:<span class="w"> </span>git<span class="w"> </span><span class="o">[</span>--version<span class="o">]</span><span class="w"> </span><span class="o">[</span>--help<span class="o">]</span><span class="w"> </span><span class="o">[</span>-C<span class="w"> </span>&lt;path&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>-c<span class="w"> </span>&lt;name&gt;<span class="o">=</span>&lt;value&gt;<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>--exec-path<span class="o">[=</span>&lt;path&gt;<span class="o">]]</span><span class="w"> </span><span class="o">[</span>--html-path<span class="o">]</span><span class="w"> </span><span class="o">[</span>--man-path<span class="o">]</span><span class="w"> </span><span class="o">[</span>--info-path<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>-p<span class="w"> </span><span class="p">|</span><span class="w"> </span>--paginate<span class="w"> </span><span class="p">|</span><span class="w"> </span>-P<span class="w"> </span><span class="p">|</span><span class="w"> </span>--no-pager<span class="o">]</span><span class="w"> </span><span class="o">[</span>--no-replace-objects<span class="o">]</span><span class="w"> </span><span class="o">[</span>--bare<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>--git-dir<span class="o">=</span>&lt;path&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--work-tree<span class="o">=</span>&lt;path&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--namespace<span class="o">=</span>&lt;name&gt;<span class="o">]</span>
+<span class="w">           </span><span class="o">[</span>--super-prefix<span class="o">=</span>&lt;path&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--config-env<span class="o">=</span>&lt;name&gt;<span class="o">=</span>&lt;envvar&gt;<span class="o">]</span>
+<span class="w">           </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>&lt;args&gt;<span class="o">]</span>
+
+These<span class="w"> </span>are<span class="w"> </span>common<span class="w"> </span>Git<span class="w"> </span>commands<span class="w"> </span>used<span class="w"> </span><span class="k">in</span><span class="w"> </span>various<span class="w"> </span>situations:
+start<span class="w"> </span>a<span class="w"> </span>working<span class="w"> </span>area<span class="w"> </span><span class="o">(</span>see<span class="w"> </span>also:<span class="w"> </span>git<span class="w"> </span><span class="nb">help</span><span class="w"> </span>tutorial<span class="o">)</span>
+<span class="w">   </span>clone<span class="w">      </span>Clone<span class="w"> </span>a<span class="w"> </span>repository<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>directory
+<span class="w">   </span>init<span class="w">       </span>Create<span class="w"> </span>an<span class="w"> </span>empty<span class="w"> </span>Git<span class="w"> </span>repository<span class="w"> </span>or<span class="w"> </span>reinitialize<span class="w"> </span>an<span class="w"> </span>existing<span class="w"> </span>one
+</pre></div>
+</div>
+<p>In addition to using <cite>dpkg</cite> and <cite>apt</cite>, you can also run scripts for installation. Let’s learn about script installation by installing VirtualBox Guest Additions. If you’re not using a virtual machine, you can skip this step. In the virtual machine toolbar, select “Devices,” then choose “Insert Guest Additions CD Image,” as shown in Figure 1-25.</p>
+<figure class="align-default" id="id2">
+<img alt="Select to Install Enhanced Features" src="../../_images/figure1-25.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1-25 Select to Install Enhanced Features</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The Guest Additions include features such as shared clipboard, shared folders, and automatic screen resolution adjustment. Next, double-click the file manager icon in the virtual machine, as shown in Figure 1-26, to open the file manager.</p>
+<figure class="align-default" id="id3">
+<img alt="File Manager Icon" src="../../_images/figure1-26.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1-26 File Manager Icon</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Next, click on the folder starting with <cite>VBox_GAs</cite> in the bottom-left corner of the file manager. Then, right-click on a blank area within that folder and select “Open in Terminal,” as shown in Figure 1-27.</p>
+<figure class="align-default" id="id4">
+<img alt="Installation Package Virtual Disc File" src="../../_images/figure1-27.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1-27 Installation Package Virtual Disc File</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>In Linux, terminal scripts usually end with <cite>.sh</cite>. Next, in the opened terminal, enter the command in Listing 1-22 to execute the automatic installation script.</p>
+<p><strong>Listing 1-22: Automatic Installation Script</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./autorun.sh
+---
+Verifying<span class="w"> </span>archive<span class="w"> </span>integrity...<span class="w">  </span><span class="m">100</span>%<span class="w">   </span>MD5<span class="w"> </span>checksums<span class="w"> </span>are<span class="w"> </span>OK.<span class="w"> </span>All<span class="w"> </span>good.
+Uncompressing<span class="w"> </span>VirtualBox<span class="w"> </span><span class="m">7</span>.0.6<span class="w"> </span>Guest<span class="w"> </span>Additions<span class="w"> </span><span class="k">for</span><span class="w"> </span>Linux<span class="w">  </span><span class="m">100</span>%
+VirtualBox<span class="w"> </span>Guest<span class="w"> </span>Additions<span class="w"> </span>installer
+...
+The<span class="w"> </span>system<span class="w"> </span>is<span class="w"> </span>restarted.
+Press<span class="w"> </span>Return<span class="w"> </span>to<span class="w"> </span>close<span class="w"> </span>this<span class="w"> </span>window...
+</pre></div>
+</div>
+<p>After following the prompts to complete the installation, simply close the window. If you need to install some commonly used software in Linux, you can often do so with a single <cite>apt</cite> command. Sometimes, this can feel even more convenient than installing software on Windows.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter1_4_1.html" class="btn btn-neutral float-left" title="1.4.1 Basic Linux Terminal Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter1_4_3.html" class="btn btn-neutral float-right" title="1.4.3 Writing Python Programs in Linux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

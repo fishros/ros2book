@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="About" href="../../about.html" />
+    <link rel="prev" title="2.1 Writing Your First Node" href="chapter2_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+          <li class="breadcrumb-item"><a href="chapter2_1.html">2.1 Writing Your First Node</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_1/chapter2_1_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>ROS 2 provides a rich Python client library, allowing you to create nodes with simple function calls.</p>
+<p>Create a <cite>chapt2/</cite> folder in your home directory and open it with VS Code. Then, create a <cite>ros2_python_node.py</cite> file and write the content from Listing 2-1 in the file.</p>
+<p><strong>Listing 2-1: A Simple Python Node</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;python_node&quot;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As shown in Listing 2-1, we first import the ROS 2 Python client library <cite>rclpy</cite>, and then import the <cite>Node</cite> class from the <cite>node</cite> module of <cite>rclpy</cite>. Next, we define a <cite>main</cite> function. Inside the function, we first call the <cite>init</cite> method of <cite>rclpy</cite> to allocate resources for communication. Then, we create an instance of the <cite>Node</cite> class named <cite>python_node</cite>. With the <cite>node</cite> instance, we can use it to subscribe to or publish topics. Communication is not the focus of this section, so no operations are performed here.</p>
+<p>After creating the node, we use the <cite>spin</cite> method to start the node. As the name suggests, the <cite>spin</cite> method continuously checks for new events, such as incoming topic data, until the node is shut down. The subsequent <cite>rclpy.shutdown()</cite> method is used to clean up allocated resources and confirm that the node has been shut down.</p>
+<p>After understanding the purpose of each line of code, let’s run the code. Use the shortcut <cite>Ctrl + Shift + ~</cite> to quickly open an integrated terminal in VS Code, and then enter the command in Listing 2-2 to run the node.</p>
+<p><strong>Listing 2-2: Running the Node Using Python</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>ros2_python_node.py
+</pre></div>
+</div>
+<p>After running, you’ll notice that the terminal doesn’t display any output or prompts. Don’t doubt the code—the node is actually running. Use the shortcut <cite>Ctrl + Shift + 5</cite> to add a new terminal next to the existing one in VS Code, and then enter the command in Listing 2-3.</p>
+<p><strong>Listing 2-3: Querying the Node List Using the Command Line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>node<span class="w"> </span>list
+---
+/python_node
+</pre></div>
+</div>
+<p>The <cite>ros2 node list</cite> command in Listing 2-3 is one of the commands under the node module of the ROS 2 command-line tool. It is used to view the current list of nodes. Seeing <cite>/python_node</cite> means our first ROS 2 node has successfully started. However, starting without any output isn’t very friendly, so let’s modify the <cite>main</cite> function to add a print statement, as shown in Listing 2-4.</p>
+<p><strong>Listing 2-4: Node Code with Added Print Statement</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;python_node&quot;</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Hello Python Node!&#39;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here, we’ve added a print statement, but instead of using the familiar <cite>print</cite> function, we first call <cite>get_logger()</cite> through the <cite>node</cite> instance to get the logger, and then use the logger’s <cite>info</cite> method to print a message.</p>
+<p>Let’s run and test it. In the terminal where the node was running, enter the <cite>Ctrl + C</cite> command to interrupt the currently running program. Then, enter and run the command in Listing 2-5.</p>
+<p><strong>Listing 2-5: Running the Python Node with Logging</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>ros2_python_node.py
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1699126891</span>.009349500<span class="o">]</span><span class="w"> </span><span class="o">[</span>python_node<span class="o">]</span>:<span class="w"> </span>Hello<span class="w"> </span>Python<span class="w"> </span>Node!
+</pre></div>
+</div>
+<p>Here, you can see not only the content we wanted to print but also the log level, timestamp, and node information. If you want to see more log information, you can modify the log format using the <cite>RCUTILS_CONSOLE_OUTPUT_FORMAT</cite> environment variable. Use the setting in Listing 2-6 to print the function name and line number along with the message.</p>
+<p><strong>Listing 2-6: Using Environment Variables to Print More Information</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">RCUTILS_CONSOLE_OUTPUT_FORMAT</span><span class="o">=[{</span>function_name<span class="o">}</span>:<span class="o">{</span>line_number<span class="o">}]</span>:<span class="o">{</span>message<span class="o">}</span>
+$<span class="w"> </span>python3<span class="w"> </span>ros2_python_node.py
+---
+<span class="o">[</span>main:7<span class="o">]</span>:<span class="w"> </span>Hello<span class="w"> </span>Python<span class="w"> </span>Node!
+</pre></div>
+</div>
+<p>Using <cite>{}</cite> to enclose specific keywords represents the corresponding message. In addition to the three used in the code above, there are also <cite>severity</cite> for log level, <cite>name</cite> for logger name, <cite>file_name</cite> for file name, <cite>time</cite> for timestamp, and <cite>time_as_nanoseconds</cite> for timestamp in nanoseconds.</p>
+<p>With this, our first Python node is complete. However, you might notice that there are no code hints while writing. This is because the Python plugin is not installed. As shown in Figure 2-1, open the VS Code extensions, search for “Python,” and install the first plugin.</p>
+<figure class="align-default" id="id1">
+<img alt="Editing Interface" src="../../_images/figure2-1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-1 Editing Interface</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter2_1.html" class="btn btn-neutral float-left" title="2.1 Writing Your First Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
