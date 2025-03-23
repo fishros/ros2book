@@ -13,6 +13,7 @@ Do not close the simulator and keyboard control terminals. Open a new terminal a
 
 .. figure:: figure1-21.png
     :alt: Default RQT Interface
+    :align: center
 
     Figure 1-21 Default RQT Interface
 
@@ -20,6 +21,7 @@ Next, in the rqt toolbar, select **Plugins > Introspection > Node Graph**. After
 
 .. figure:: figure1-22.png
     :alt: Node Graph Plugin Interface
+    :align: center
 
     Figure 1-22 Node Graph Plugin Interface
 

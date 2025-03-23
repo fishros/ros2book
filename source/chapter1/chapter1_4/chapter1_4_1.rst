@@ -77,6 +77,7 @@ Now, let’s use a tool to edit the `hello_world.txt` file. Enter the command in
 
 .. figure:: figure1-23.png
     :alt: Editing Interface
+    :align: center
 
     Figure 1-23 Editing Interface
 

@@ -7,6 +7,7 @@ First, open the Firefox browser from the top-left corner of the Linux desktop an
 
 .. figure:: figure1-24.png
     :alt: VS Code Download Interface
+    :align: center
 
     Figure 1-24 VS Code Download Interface
 

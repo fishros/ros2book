@@ -5,6 +5,7 @@ When we develop robots, the two most commonly used languages are C++ and Python.
 
 .. figure:: figure1-28.png
     :alt: Programming Language Rankings
+    :align: center
 
     Figure 1-28 Programming Language Rankings
 
@@ -12,6 +13,7 @@ In any terminal, enter `code` to open the VS Code main interface, as shown in Fi
 
 .. figure:: figure1-29.png
     :alt: VS Code Main Interface
+    :align: center
 
     Figure 1-29 VS Code Main Interface
 
@@ -19,6 +21,7 @@ Next, in VS Code, click on **File > Open Folder** and navigate to the `chapt1` d
 
 .. figure:: figure1-30.png
     :alt: VS Code Create New File
+    :align: center
 
     Figure 1-30 VS Code Create New File
 
@@ -26,6 +29,7 @@ At this point, the file editing area will appear on the right side of VS Code, a
 
 .. figure:: figure1-31.png
     :alt: VS Code Edit File
+    :align: center
 
     Figure 1-31 VS Code Edit File
 
@@ -49,6 +53,7 @@ In the terminal, enter the command in Listing 1-24 to run the code. The result i
 
 .. figure:: figure1-32.png
     :alt: Run Code in Terminal
+    :align: center
 
     Figure 1-32 Run Code in Terminal
 

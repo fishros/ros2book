@@ -16,6 +16,7 @@ Use the shortcut `Ctrl + Alt + T` to open a new terminal and enter the command s
 
 .. figure:: figure1-19.png
     :alt: Turtle Simulator Interface
+    :align: center
 
     Figure 1-19 Turtle Simulator Interface
 
