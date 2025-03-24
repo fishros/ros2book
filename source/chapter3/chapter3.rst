@@ -1,0 +1,6 @@
+Introduction
+=================================
+
+When I first started the "FishROS" public account, it had no followers, so I often recommended it to friends and posted technical articles, images, or videos daily to engage my subscribers. Similar to the subscription-publish mechanism of public accounts, this model is widely used in various fields, such as the MQTT protocol in IoT, which is also based on a subscription-publish communication mechanism.
+
+In the world of robotics, to perceive environmental information and execute actions, robots are often equipped with many sensors and actuators. Common sensors include cameras, LiDAR, and inertial measurement units (IMUs), while common actuators include various types of chassis, robotic arm joint motors, and electric grippers. To facilitate the transmission of data from these sensors and actuators within the robot system, ROS 2 introduces a subscription-publish mechanism known as **topic communication**. This chapter will provide a detailed explanation of topic communication.
