@@ -21,5 +21,6 @@ To allow the keyboard control node to capture keyboard input, click on the termi
 
 .. figure:: figure1-20.png
     :alt: Turtle Motion Path
+    :align: center
 
     Figure 1-20 Turtle Motion Path

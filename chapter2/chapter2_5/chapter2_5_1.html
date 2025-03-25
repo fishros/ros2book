@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.5.1 Object-Oriented Programming &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.5.2 Useful C++ New Features" href="chapter2_5_2.html" />
+    <link rel="prev" title="2.5 ROS 2 Basics: Programming" href="chapter2_5.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_1/chapter2_1.html">2.1 Writing Your First Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_2/chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_4/chapter2_4.html">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter2_5.html">2.5 ROS 2 Basics: Programming</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.5.1 Object-Oriented Programming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python-example">2.5.1.1 Python Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c-example">2.5.1.2 C++ Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2_5_2.html">2.5.2 Useful C++ New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2_5_3.html">2.5.3 Multithreading and Callback Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+          <li class="breadcrumb-item"><a href="chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+      <li class="breadcrumb-item active">2.5.1 Object-Oriented Programming</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_5/chapter2_5_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="object-oriented-programming">
+<h1>2.5.1 Object-Oriented Programming<a class="headerlink" href="#object-oriented-programming" title="Link to this heading"></a></h1>
+<p>You can find standardized definitions of object-oriented programming (OOP) in many tutorials, but these definitions are often conceptual and easier to understand for those already familiar with the topic. For beginners, they can be confusing. Therefore, I’ll use simple language and practical examples to explain what OOP is.</p>
+<p>Unlike procedural languages like C, object-oriented languages allow you to create <strong>classes</strong>, which are encapsulations of entities. For example, humans, phones, robots, and any other entities can be encapsulated into classes. A class can have its own <strong>attributes</strong> and <strong>methods</strong>. For instance, humans have attributes like height and age, while phones have attributes like brand and memory size. These attributes typically describe the class. Methods represent the behavior of the class, such as humans eating and sleeping, or phones turning on and off.</p>
+<p>Through this encapsulation, you can instantiate an object of a class when needed. For example, when someone needs to eat, you can create a person object named “Zhang San” and call its <cite>eat</cite> method to perform the action. In addition to instantiating a class into a concrete object, classes can also be <strong>inherited</strong>, which we’ll discuss later. For now, let’s try creating a class.</p>
+<section id="python-example">
+<h2>2.5.1.1 Python Example<a class="headerlink" href="#python-example" title="Link to this heading"></a></h2>
+<p>Open <cite>chapt2_ws/</cite> in VS Code, then create a <cite>person_node.py</cite> file in the <cite>src/demo_python_pkg/demo_python_pkg</cite> directory. Add the code shown in Listing 2-33.</p>
+<p><strong>Listing 2-33: Defining a Simple Python Class</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PersonNode</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>This is an empty class declaration. In Python, we use the <cite>class</cite> keyword to declare a class and add an empty <cite>__init__</cite> method. The <cite>__init__</cite> method is a special method in Python classes that is called when an object of the class is created. When you need to add attributes to the class, you typically pass initial values through the parameters of the <cite>__init__</cite> method. Now, let’s add some attributes and methods to this class, as shown in Listing 2-34.</p>
+<p><strong>Listing 2-34: Adding Attributes and Methods to the Python Class</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PersonNode</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PersonNode</span><span class="se">\&#39;</span><span class="s1">s __init__ method was called&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old, and I am eating </span><span class="si">{</span><span class="n">food_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the <cite>__init__</cite> method, we created the <cite>age</cite> and <cite>name</cite> attributes, requiring a string for the name and an integer for the age. We also added a print statement to check if the method is called. Then, we defined an <cite>eat</cite> method that takes a string <cite>food_name</cite> as a parameter. Note that the first parameter of all Python class methods is <cite>self</cite>, which refers to the instance itself.</p>
+<p>Now that the <cite>PersonNode</cite> class is defined, let’s instantiate it and call its methods. Add the instantiation code at the end of the <cite>person_node.py</cite> file, as shown in Listing 2-35.</p>
+<p><strong>Listing 2-35: Defining the main Function to Instantiate PersonNode</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PersonNode</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">PersonNode</span><span class="p">(</span><span class="s1">&#39;Zhang San&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s1">&#39;Fish-flavored Shredded Pork&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, we pass the name and age as parameters to <cite>PersonNode</cite>, instantiate an object of the <cite>PersonNode</cite> class named <cite>node</cite>, and then call its <cite>eat</cite> method. Let’s try compiling and running the code. First, register the current node in <cite>setup.py</cite>. After completing this, the <cite>entry_points</cite> section in <cite>setup.py</cite> should look like Listing 2-36.</p>
+<p><strong>Listing 2-36: setup.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;python_node = demo_python_pkg.python_node:main&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;person_node = demo_python_pkg.person_node:main&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
+</pre></div>
+</div>
+<p>Next, start the build process. Open the terminal and enter the command in Listing 2-37.</p>
+<p><strong>Listing 2-37: Building a Single Package</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>demo_python_pkg
+---
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_python_pkg
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_python_pkg<span class="w"> </span><span class="o">[</span><span class="m">0</span>.60s<span class="o">]</span>
+
+Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>package<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">0</span>.70s<span class="o">]</span>
+</pre></div>
+</div>
+<p>Then, as shown in Listing 2-38, run the <cite>person_node</cite> node directly.</p>
+<p><strong>Listing 2-38: Running the person_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>person_node
+---
+PersonNode<span class="err">&#39;</span>s<span class="w"> </span>__init__<span class="w"> </span>method<span class="w"> </span>was<span class="w"> </span>called
+My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>Zhang<span class="w"> </span>San,<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">18</span><span class="w"> </span>years<span class="w"> </span>old,<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span>eating<span class="w"> </span>Fish-flavored<span class="w"> </span>Shredded<span class="w"> </span>Pork
+</pre></div>
+</div>
+<p>The result matches our expectations. After learning how to encapsulate attributes and methods into a class, let’s explore another important feature of OOP: <strong>inheritance</strong>.</p>
+<p>Suppose we want to define a <cite>WriterNode</cite> class for writers. Writers have their own books, so we can add a <cite>book</cite> attribute to the <cite>WriterNode</cite> class. However, writers are also people, so they have names and ages and can eat. If we add <cite>age</cite>, <cite>name</cite>, and <cite>eat</cite> to <cite>WriterNode</cite>, it would be redundant. Instead, we can have <cite>WriterNode</cite> inherit the attributes and methods of <cite>PersonNode</cite>. Let’s implement this. Create a <cite>writer_node.py</cite> file in the <cite>src/demo_python_pkg/demo_python_pkg</cite> directory and add the code in Listing 2-39.</p>
+<p><strong>Listing 2-39: Creating the WriterNode Class Inheriting from PersonNode</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">demo_python_pkg.person_node</span><span class="w"> </span><span class="kn">import</span> <span class="n">PersonNode</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">WriterNode</span><span class="p">(</span><span class="n">PersonNode</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WriterNode</span><span class="se">\&#39;</span><span class="s1">s __init__ method was called&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">book</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">WriterNode</span><span class="p">(</span><span class="s1">&#39;On Fast Imprisonment&#39;</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s1">&#39;Fish-flavored Shredded Pork&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In Listing 2-39, we first import the <cite>PersonNode</cite> class from <cite>person_node.py</cite>. We define <cite>WriterNode</cite> and specify that it inherits from <cite>PersonNode</cite> by adding <cite>PersonNode</cite> in parentheses after the class name. Then, we add the <cite>book</cite> attribute in the <cite>__init__</cite> method. Next, we instantiate a <cite>WriterNode</cite> object <cite>node</cite>, assign values to its attributes, and call the <cite>eat</cite> method. Now, add the <cite>writer_node</cite> node to <cite>setup.py</cite> and rebuild. You should see the result shown in Listing 2-40.</p>
+<p><strong>Listing 2-40: Running the writer_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>writer_node
+---
+WriterNode<span class="s1">&#39;s __init__ method was called</span>
+<span class="s1">Traceback (most recent call last):</span>
+<span class="s1">  File &quot;/home/fishros/chapt2/chapt2_ws/install/demo_python_pkg/lib/demo_python_pkg/writer_node&quot;, line 33, in &lt;module&gt;</span>
+<span class="s1">    sys.exit(load_entry_point(&#39;</span>demo-python-pkg<span class="o">==</span><span class="m">0</span>.0.0<span class="s1">&#39;, &#39;</span>console_scripts<span class="s1">&#39;, &#39;</span>writer_node<span class="s1">&#39;)())</span>
+<span class="s1">  File &quot;/home/fishros/chapt2/chapt2_ws/install/demo_python_pkg/lib/python3.10/site-packages/demo_python_pkg/writer_node.py&quot;, line 10, in main</span>
+<span class="s1">    node.eat(&#39;</span>Fish-flavored<span class="w"> </span>Shredded<span class="w"> </span>Pork<span class="s1">&#39;)</span>
+<span class="s1">  File &quot;/home/fishros/chapt2/chapt2_ws/install/demo_python_pkg/lib/python3.10/site-packages/demo_python_pkg/person_node.py&quot;, line 12, in eat</span>
+<span class="s1">    print(f&#39;</span>Age<span class="w"> </span><span class="o">{</span>self.age<span class="o">}</span>,<span class="w"> </span>name<span class="w"> </span><span class="o">{</span>self.name<span class="o">}</span><span class="w"> </span>is<span class="w"> </span>eating<span class="w"> </span><span class="o">{</span>food_name<span class="o">}</span><span class="s1">&#39;)</span>
+<span class="s1">AttributeError: &#39;</span>WriterNode<span class="s1">&#39; object has no attribute &#39;</span>age<span class="err">&#39;</span>
+<span class="o">[</span>ros2run<span class="o">]</span>:<span class="w"> </span>Process<span class="w"> </span>exited<span class="w"> </span>with<span class="w"> </span>failure<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Don’t panic when encountering errors—I’ll teach you how to handle them. The error message here, from top to bottom, first shows the call stack of the error. We called the <cite>node.eat()</cite> method, and the error occurred inside the <cite>eat</cite> method when it tried to print. The error message is <cite>AttributeError: ‘WriterNode’ object has no attribute ‘age’</cite>. Even though we made <cite>WriterNode</cite> inherit from <cite>PersonNode</cite>, why does <cite>WriterNode</cite> not have the <cite>age</cite> attribute? From the first print statement, you can see that the <cite>__init__</cite> method of <cite>PersonNode</cite> was not called. We can fix this by using <cite>super()</cite> to call the parent class’s <cite>__init__</cite> method. Modify <cite>writer_node.py</cite> as shown in Listing 2-41.</p>
+<p><strong>Listing 2-41: Adding a Call to the Parent Class’s __init__ Method</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">…</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WriterNode</span><span class="p">(</span><span class="n">PersonNode</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">book</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WriterNode</span><span class="se">\&#39;</span><span class="s1">s __init__ method was called&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="n">book</span>
+<span class="err">…</span>
+</pre></div>
+</div>
+<p>After saving, rebuild the code to copy it to the <cite>install</cite> directory. Run <cite>writer_node</cite> again, and the result is shown in Listing 2-42.</p>
+<p><strong>Listing 2-42: Running the Updated writer_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>writer_node
+PersonNode<span class="s1">&#39;s __init__ method was called</span>
+<span class="s1">WriterNode&#39;</span>s<span class="w"> </span>__init__<span class="w"> </span>method<span class="w"> </span>was<span class="w"> </span>called
+My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>Zhang<span class="w"> </span>San,<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">18</span><span class="w"> </span>years<span class="w"> </span>old,<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span>eating<span class="w"> </span>Fish-flavored<span class="w"> </span>Shredded<span class="w"> </span>Pork
+</pre></div>
+</div>
+<p>From the result in Listing 2-42, you can see that <cite>WriterNode</cite> has successfully inherited the attributes and methods of <cite>PersonNode</cite>.</p>
+<p>After learning about Python classes and inheritance, let’s turn <cite>PersonNode</cite> and <cite>WriterNode</cite> into actual ROS 2 nodes. Recall that when writing the first Python node, we instantiated the <cite>Node</cite> class. If we make <cite>PersonNode</cite> inherit from <cite>Node</cite>, it will have all the attributes and methods of the <cite>Node</cite> class, becoming a true ROS 2 node. Let’s try this by modifying <cite>person_node.py</cite> as shown in Listing 2-43.</p>
+<p><strong>Listing 2-43: PersonNode Inheriting from ROS 2 Node</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PersonNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;My name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old, and I am eating </span><span class="si">{</span><span class="n">food_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">PersonNode</span><span class="p">(</span><span class="s1">&#39;person_node&#39;</span><span class="p">,</span> <span class="s1">&#39;Zhang San&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s1">&#39;Fish-flavored Shredded Pork&#39;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here, we first import the <cite>rclpy</cite> library and the <cite>Node</cite> class. Then, we make <cite>PersonNode</cite> inherit from <cite>Node</cite> and require a node name to be passed when calling the parent class’s <cite>__init__</cite> method. Finally, we change the <cite>eat</cite> method’s print statement to use ROS 2’s logger. Rebuild and run the code, and the result is shown in Listing 2-44.</p>
+<p><strong>Listing 2-44: Running the Updated writer_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>writer_node
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1680891408</span>.833994560<span class="o">]</span><span class="w"> </span><span class="o">[</span>person_node<span class="o">]</span>:<span class="w"> </span>My<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>Zhang<span class="w"> </span>San,<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">18</span><span class="w"> </span>years<span class="w"> </span>old,<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span>eating<span class="w"> </span>Fish-flavored<span class="w"> </span>Shredded<span class="w"> </span>Pork
+</pre></div>
+</div>
+<p>In Listing 2-43, we used the <cite>self.get_logger()</cite> method, which belongs to the <cite>Node</cite> class, and successfully printed the message. This shows that <cite>PersonNode</cite> has successfully inherited the <cite>Node</cite> class.</p>
+<p>Since <cite>WriterNode</cite> inherits from <cite>PersonNode</cite>, it should also have the attributes and methods of the <cite>Node</cite> class. Try converting it into a ROS 2 node and running it as a homework assignment.</p>
+<p>After learning so many OOP concepts, you might feel overwhelmed or find the process tedious. OOP requires continuous practice in future learning and work to truly appreciate its benefits. Take a break, and in the next section, we’ll explore OOP in C++.</p>
+</section>
+<section id="c-example">
+<h2>2.5.1.2 C++ Example<a class="headerlink" href="#c-example" title="Link to this heading"></a></h2>
+<p>After learning the basic concepts of OOP and implementing them in Python, you’ll find this section on C++ OOP easier to grasp. Like Python, C++ is a high-level language with similar OOP features, though the syntax differs. Let’s create a C++ version of the <cite>PersonNode</cite> node using the concepts from the previous section.</p>
+<p>Create a <cite>person_node.cpp</cite> file in the <cite>chapt2_ws/src/demo_cpp_pkg/src</cite> directory and write the code in Listing 2-45.</p>
+<p><strong>Listing 2-45: Writing a C++ PersonNode Inheriting from Node</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PersonNode</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">age_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="n">PersonNode</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">node_name</span><span class="p">,</span>
+<span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">name</span><span class="p">,</span>
+<span class="w">             </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">age_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">eat</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">food_name</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;I am %s, I am %d years old, and I am eating %s&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">name_</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span><span class="w"> </span><span class="n">age_</span><span class="p">,</span><span class="w"> </span><span class="n">food_name</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">PersonNode</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;cpp_node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Zhang San&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span>
+<span class="w">  </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">eat</span><span class="p">(</span><span class="s">&quot;Fish-flavored ROS&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Starting from the top, the code includes the <cite>string</cite> and <cite>rclcpp/rclcpp.hpp</cite> headers. The <cite>string</cite> header is included because node names and person names are represented as strings.</p>
+<p>Next, we define the <cite>PersonNode</cite> class using the <cite>class</cite> keyword, making it inherit from <cite>rclcpp::Node</cite>. Inside the class, we first define the <cite>private</cite> section, which includes the <cite>name_</cite> and <cite>age_</cite> attributes.</p>
+<p>In the <cite>public</cite> section, we define the constructor <cite>PersonNode</cite>, which takes the node name, name, and age as parameters. Note that the parameters are passed as <cite>const</cite> references (<cite>const std::string &amp;</cite>). The <cite>&amp;</cite> indicates passing by reference, which avoids unnecessary data copying and improves efficiency. The <cite>const</cite> ensures the variables are read-only, preventing accidental modifications and enhancing code safety. The <cite>: Node(node_name)</cite> syntax calls the parent class’s constructor, passing the node name parameter. This is similar to Python but with different syntax.</p>
+<p>Inside the constructor, we use <cite>this</cite>, a pointer to the current object, to assign values to <cite>name_</cite> and <cite>age_</cite>. Then, we implement the <cite>eat</cite> method, which takes a <cite>const</cite> reference to the food name. Inside the method, we use ROS 2’s logging module to print the data. Since <cite>RCLCPP_INFO</cite> uses C-style formatted printing, <cite>name_</cite> and <cite>food_name</cite> need to be converted to C-style strings using <cite>c_str()</cite>.</p>
+<p>Finally, in the <cite>main</cite> function, we use <cite>std::make_shared</cite> to create a <cite>PersonNode</cite> object, passing the node name, name, and age as parameters. We then call the <cite>eat</cite> method and ROS 2’s related methods. Next, modify <cite>CMakeLists.txt</cite> to add the <cite>person_node</cite> node. The complete <cite>CMakeLists.txt</cite> is shown in Listing 2-46.</p>
+<p><strong>Listing 2-46: Adding the person_node Node</strong></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="err">...</span>
+<span class="c"># find dependencies</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">ament_cmake</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="err">...</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">person_node</span><span class="w"> </span><span class="s">src/person_node.cpp</span><span class="p">)</span>
+<span class="nb">ament_target_dependencies</span><span class="p">(</span><span class="s">person_node</span><span class="w"> </span><span class="s">rclcpp</span><span class="p">)</span>
+
+<span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span>
+<span class="w">  </span><span class="s">cpp_node</span><span class="w"> </span><span class="s">person_node</span>
+<span class="w">  </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span>
+<span class="p">)</span>
+<span class="err">...</span>
+<span class="nb">ament_package</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Next, enter the following commands to build and run the node. The commands and results are shown in Listing 2-47.</p>
+<p><strong>Listing 2-47: Building and Running the person_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>demo_cpp_pkg
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_pkg<span class="w"> </span>person_node
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1680904724</span>.328635258<span class="o">]</span><span class="w"> </span><span class="o">[</span>cpp_node<span class="o">]</span>:<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span>Zhang<span class="w"> </span>San,<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span><span class="m">18</span><span class="w"> </span>years<span class="w"> </span>old,<span class="w"> </span>and<span class="w"> </span>I<span class="w"> </span>am<span class="w"> </span>eating<span class="w"> </span>Fish-flavored<span class="w"> </span>ROS
+</pre></div>
+</div>
+<p>At this point, you should feel accomplished because you’ve successfully written a C++ node class using OOP. Over the years, C++ has introduced many new features, such as <cite>std::make_shared</cite> for smart pointers, which are widely used in ROS 2. Take a short break, and in the next section, we’ll explore some of the new C++ features useful for ROS 2 development.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter2_5.html" class="btn btn-neutral float-left" title="2.5 ROS 2 Basics: Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter2_5_2.html" class="btn btn-neutral float-right" title="2.5.2 Useful C++ New Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

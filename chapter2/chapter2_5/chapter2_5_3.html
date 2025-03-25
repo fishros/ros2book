@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.5.3 Multithreading and Callback Functions &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.6 Chapter Summary and Comments" href="../chapter2_6/chapter2_6.html" />
+    <link rel="prev" title="2.5.2 Useful C++ New Features" href="chapter2_5_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_1/chapter2_1.html">2.1 Writing Your First Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_2/chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_4/chapter2_4.html">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter2_5.html">2.5 ROS 2 Basics: Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter2_5_1.html">2.5.1 Object-Oriented Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2_5_2.html">2.5.2 Useful C++ New Features</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.5.3 Multithreading and Callback Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#python-example">2.5.3.1 Python Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c-example">2.5.3.2 C++ Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+          <li class="breadcrumb-item"><a href="chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+      <li class="breadcrumb-item active">2.5.3 Multithreading and Callback Functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_5/chapter2_5_3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multithreading-and-callback-functions">
+<h1>2.5.3 Multithreading and Callback Functions<a class="headerlink" href="#multithreading-and-callback-functions" title="Link to this heading"></a></h1>
+<p>If you’re accustomed to procedural programming, multithreading might seem fascinating. The charm of multithreading lies in its ability to run programs in parallel. For example, you can use multithreading to download multiple novels simultaneously instead of waiting for one to finish before starting the next. Additionally, another key focus of this section is <strong>callback functions</strong>.</p>
+<section id="python-example">
+<h2>2.5.3.1 Python Example<a class="headerlink" href="#python-example" title="Link to this heading"></a></h2>
+<p>We pass function A as a parameter to function B and call function A within function B through this parameter, enabling the processing of execution results. For instance, after a download completes, a callback function can provide feedback on the result. Let’s implement a Python example of downloading novels using multithreading. Create a <cite>learn_thread.py</cite> file in the <cite>src/demo_python_pkg/demo_python_pkg</cite> directory and add the code in Listing 2-57.</p>
+<p><strong>Listing 2-57: Downloading Novels Locally</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Download</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Thread: </span><span class="si">{</span><span class="n">threading</span><span class="o">.</span><span class="n">get_ident</span><span class="p">()</span><span class="si">}</span><span class="s1"> started downloading: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
+        <span class="n">callback</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">start_download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="p">))</span>
+        <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">download_finish_callback</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1"> download completed, total: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="si">}</span><span class="s1"> characters, content: </span><span class="si">{</span><span class="n">result</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s1">...&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">Download</span><span class="p">()</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">start_download</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/novel1.txt&#39;</span><span class="p">,</span> <span class="n">download_finish_callback</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">start_download</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/novel2.txt&#39;</span><span class="p">,</span> <span class="n">download_finish_callback</span><span class="p">)</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">start_download</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/novel3.txt&#39;</span><span class="p">,</span> <span class="n">download_finish_callback</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In Listing 2-57, we first import the Python threading library <cite>threading</cite> and the HTTP request library <cite>requests</cite>. If you encounter import errors, you can install <cite>python3-requests</cite> using <cite>apt</cite>. Then, we define a <cite>Download</cite> class with two methods: <cite>download</cite> and <cite>start_download</cite>.</p>
+<p>The <cite>download</cite> method takes a URL and a callback function as parameters. It prints the current thread ID and the URL being downloaded, then uses <cite>requests</cite> to fetch the data. Finally, it passes the URL and data text to the callback function.</p>
+<p>The <cite>start_download</cite> method also takes a URL and a callback function as parameters. It creates a new thread to run the <cite>download</cite> function, passing the URL and callback as arguments, and starts the thread.</p>
+<p>After defining the <cite>Download</cite> class, we create a <cite>download_finish_callback</cite> function to handle the downloaded data. In the <cite>main</cite> function, we instantiate a <cite>Download</cite> object and call <cite>start_download</cite> three times to download the novels, using <cite>download_finish_callback</cite> as the callback.</p>
+<p>Before testing the code, let’s prepare the novels and a local HTTP server. Open a terminal, navigate to the <cite>chapt2_ws</cite> directory, and use the commands in Listing 2-58 to create three novel chapters and start a local HTTP server.</p>
+<p><strong>Listing 2-58: Creating Three Novel Files and Running the Server</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Chapter 1: The boy embarks on the path of cultivation, exiled due to the power of the Slaying Immortal.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>novel1.txt
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Chapter 2: Learning cultivation, making friends, and understanding responsibility.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>novel2.txt
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Chapter 3: Zhang Jiajie returns to the village, resists evil, and becomes a guardian.&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>novel3.txt
+$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>http.server
+---
+Serving<span class="w"> </span>HTTP<span class="w"> </span>on<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="o">(</span>http://0.0.0.0:8000/<span class="o">)</span><span class="w"> </span>...
+</pre></div>
+</div>
+<p>Add the <cite>learn_thread</cite> node to <cite>setup.py</cite>, build it, and run it. The result is shown in Listing 2-59.</p>
+<p><strong>Listing 2-59: Multithreaded Novel Download</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>learn_thread
+---
+Thread:<span class="w"> </span><span class="m">140385711027776</span><span class="w"> </span>started<span class="w"> </span>downloading:<span class="w"> </span>http://localhost:8000/novel1.txt
+Thread:<span class="w"> </span><span class="m">140385702635072</span><span class="w"> </span>started<span class="w"> </span>downloading:<span class="w"> </span>http://localhost:8000/novel2.txt
+Thread:<span class="w"> </span><span class="m">140385694242368</span><span class="w"> </span>started<span class="w"> </span>downloading:<span class="w"> </span>http://localhost:8000/novel3.txt
+http://localhost:8000/novel2.txt<span class="w"> </span>download<span class="w"> </span>completed,<span class="w"> </span>total:<span class="w"> </span><span class="m">20</span><span class="w"> </span>characters,<span class="w"> </span>content:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">2</span>...
+http://localhost:8000/novel1.txt<span class="w"> </span>download<span class="w"> </span>completed,<span class="w"> </span>total:<span class="w"> </span><span class="m">22</span><span class="w"> </span>characters,<span class="w"> </span>content:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">1</span>...
+http://localhost:8000/novel3.txt<span class="w"> </span>download<span class="w"> </span>completed,<span class="w"> </span>total:<span class="w"> </span><span class="m">23</span><span class="w"> </span>characters,<span class="w"> </span>content:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">3</span>...
+</pre></div>
+</div>
+<p>From the result, you can see that three threads were started for downloading. The shortest novel, <cite>novel2.txt</cite>, finished first, while <cite>novel3.txt</cite> finished last. The order isn’t fixed, as the files are small and download quickly. While multithreading has its benefits, too many threads can strain system scheduling. In ROS 2, data processing and scheduling are handled in a single thread by default.</p>
+</section>
+<section id="c-example">
+<h2>2.5.3.2 C++ Example<a class="headerlink" href="#c-example" title="Link to this heading"></a></h2>
+<p>Like Python, C++ can also run programs in parallel using multithreading, though the syntax and interfaces differ. Let’s dive into the code. Before writing the code, download the C++ HTTP request library <cite>cpp-httplib</cite>, which only requires including a header file. Open the integrated terminal, navigate to <cite>chapt2_ws/src/demo_cpp_pkg/include</cite>, and use the command in Listing 2-60 to download it via <cite>git</cite>.</p>
+<p><strong>Listing 2-60: Downloading the Open-Source Library Using git</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/ohhuo/cpp-httplib.git
+---
+Cloning<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;cpp-httplib&#39;</span>...
+remote:<span class="w"> </span>Enumerating<span class="w"> </span>objects:<span class="w"> </span><span class="m">4527</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Counting<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4527</span>/4527<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Compressing<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">1422</span>/1422<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+remote:<span class="w"> </span>Total<span class="w"> </span><span class="m">4527</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">3057</span><span class="o">)</span>,<span class="w"> </span>reused<span class="w"> </span><span class="m">4527</span><span class="w"> </span><span class="o">(</span>delta<span class="w"> </span><span class="m">3057</span><span class="o">)</span>,<span class="w"> </span>pack-reused<span class="w"> </span><span class="m">0</span>
+Receiving<span class="w"> </span>objects:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">4527</span>/4527<span class="o">)</span>,<span class="w"> </span><span class="m">2</span>.27<span class="w"> </span>MiB<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">805</span>.00<span class="w"> </span>KiB/s,<span class="w"> </span><span class="k">done</span>.
+Resolving<span class="w"> </span>deltas:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="o">(</span><span class="m">3057</span>/3057<span class="o">)</span>,<span class="w"> </span><span class="k">done</span>.
+</pre></div>
+</div>
+<p>After downloading, add the <cite>include_directories(include)</cite> directive to <cite>CMakeLists.txt</cite> to specify the <cite>include</cite> folder as the header file directory. The final <cite>CMakeLists.txt</cite> is shown in Listing 2-61.</p>
+<p><strong>Listing 2-61: Adding Dependencies Using include_directories</strong></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="err">...</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">rclcpp</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">include_directories</span><span class="p">(</span><span class="s">include</span><span class="p">)</span>
+<span class="err">...</span>
+<span class="nb">ament_package</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After completing the above steps, create a <cite>learn_thread.cpp</cite> file in <cite>chapt2_ws/src/demo_cpp_pkg/src</cite> and write the code in Listing 2-62.</p>
+<p><strong>Listing 2-62: learn_thread.cpp</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cpp-httplib/httplib.h&gt;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Download</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">download</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Thread ID: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">get_id</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">httplib</span><span class="o">::</span><span class="n">Client</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="n">host</span><span class="p">);</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">response</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">response</span><span class="o">-&gt;</span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">callback</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">response</span><span class="o">-&gt;</span><span class="n">body</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">start_download</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">callback</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">download_fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Download</span><span class="o">::</span><span class="n">download</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_2</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_3</span><span class="p">);</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="nf">download_thread</span><span class="p">(</span><span class="n">download_fun</span><span class="p">,</span><span class="w"> </span><span class="n">host</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">callback</span><span class="p">);</span>
+<span class="w">        </span><span class="n">download_thread</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Download</span><span class="w"> </span><span class="n">download</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">download_finish_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Download completed: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; Total: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; characters, content: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="n">download</span><span class="p">.</span><span class="n">start_download</span><span class="p">(</span><span class="s">&quot;http://localhost:8000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/novel1.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">download_finish_callback</span><span class="p">);</span>
+<span class="w">    </span><span class="n">download</span><span class="p">.</span><span class="n">start_download</span><span class="p">(</span><span class="s">&quot;http://localhost:8000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/novel2.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">download_finish_callback</span><span class="p">);</span>
+<span class="w">    </span><span class="n">download</span><span class="p">.</span><span class="n">start_download</span><span class="p">(</span><span class="s">&quot;http://localhost:8000&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/novel3.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">download_finish_callback</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">milliseconds</span><span class="p">(</span><span class="mi">1000</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">));</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the code above, we include the threading-related header <cite>thread</cite>, the time-related header <cite>chrono</cite>, the function wrapper header <cite>functional</cite>, and the <cite>cpp-httplib/httplib.h</cite> header for downloading. Then, we declare the <cite>Download</cite> class with two methods: <cite>download</cite> and <cite>start_download</cite>.</p>
+<p>The <cite>download</cite> method takes three parameters: the host address, the path (essentially splitting the full URL into two parts), and a callback function to handle the result after a successful request.</p>
+<p>The <cite>start_download</cite> method has the same parameters as <cite>download</cite>. Inside the method, we use <cite>std::bind</cite> to turn the member function <cite>download</cite> into a <cite>std::function</cite> object. We then create a <cite>thread</cite> object, passing the function, host address, path, and callback function. Unlike Python, C++ threads start running immediately upon creation. The <cite>download_thread.detach()</cite> method detaches the thread from the current process, allowing it to run in the background.</p>
+<p>Finally, in the <cite>main</cite> function, we create an instance of the <cite>Download</cite> class, define a callback function using a lambda, and call <cite>start_download</cite> three times to download the files. We use <cite>std::this_thread::sleep_for</cite> to delay the main thread for 10 seconds, ensuring all downloads have enough time to complete.</p>
+<p>Add the <cite>learn_thread</cite> node configuration to <cite>CMakeLists.txt</cite>, build the package, and run the code using the command in Listing 2-63.</p>
+<p><strong>Listing 2-63: Running the learn_thread Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_pkg<span class="w"> </span>learn_thread
+---
+Thread<span class="w"> </span>ID:<span class="w"> </span><span class="m">140551882073664</span>
+Thread<span class="w"> </span>ID:<span class="w"> </span><span class="m">140551873680960</span>
+Thread<span class="w"> </span>ID:<span class="w"> </span><span class="m">140551798126144</span>
+Download<span class="w"> </span>completed:<span class="w"> </span>/novel3.txt<span class="w"> </span>Total:<span class="w"> </span><span class="m">65</span><span class="w"> </span>characters,<span class="w"> </span>content:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>Zhang...
+Download<span class="w"> </span>completed:<span class="w"> </span>/novel1.txt<span class="w"> </span>Total:<span class="w"> </span><span class="m">62</span><span class="w"> </span>characters,<span class="w"> </span>content:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>The...
+Download<span class="w"> </span>completed:<span class="w"> </span>/novel2.txt<span class="w"> </span>Total:<span class="w"> </span><span class="m">56</span><span class="w"> </span>characters,<span class="w"> </span>content:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>Lea...
+</pre></div>
+</div>
+<p>From the result, you can see that three threads were started to download the files. However, due to differences in how C++ and Python count characters, the character counts differ.</p>
+<p>That’s it for the foundational ROS 2 programming knowledge. Once you’ve mastered the concepts in this section, you’ll have no trouble understanding the code in the future.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter2_5_2.html" class="btn btn-neutral float-left" title="2.5.2 Useful C++ New Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter2_6/chapter2_6.html" class="btn btn-neutral float-right" title="2.6 Chapter Summary and Comments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

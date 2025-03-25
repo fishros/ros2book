@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.4 Best Practices for Multi-Package Workspaces &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.5 ROS 2 Basics: Programming" href="../chapter2_5/chapter2_5.html" />
+    <link rel="prev" title="2.3.2 Package Structure Analysis" href="../chapter2_3/chapter2_3_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_1/chapter2_1.html">2.1 Writing Your First Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_2/chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_5/chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+      <li class="breadcrumb-item active">2.4 Best Practices for Multi-Package Workspaces</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_4/chapter2_4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="best-practices-for-multi-package-workspaces">
+<h1>2.4 Best Practices for Multi-Package Workspaces<a class="headerlink" href="#best-practices-for-multi-package-workspaces" title="Link to this heading"></a></h1>
+<p>Through the previous sections, you’ve successfully created ROS 2 packages and learned how to write and run nodes within them. However, you might have noticed some minor issues. For example, when there are multiple packages in the current directory, using the build command will build all packages, even if you only need to build one. Additionally, packages and temporary files generated during compilation are in the same directory, which can become messy as the number of packages increases. How can we solve these problems? In this section, we’ll learn the best practices for organizing multiple packages.</p>
+<p>A complete robot often consists of multiple functional modules, so it’s necessary to combine multiple packages. ROS 2 developers have established the concept of a <strong>Workspace</strong>—a workspace. Open <cite>chapt2/</cite> in VS Code, open the integrated terminal, navigate to the <cite>chapt2</cite> directory, and enter the command in Listing 2-27.</p>
+<p><strong>Listing 2-27: Creating a Workspace</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>chapt2_ws/src
+</pre></div>
+</div>
+<p>In the command above, the <cite>-p</cite> parameter means recursive creation. After creating <cite>chapt2_ws</cite>, a <cite>src</cite> folder is created within it, resulting in a workspace. You might ask, isn’t this just a regular folder? Why is it called a workspace? The reason is that a workspace is essentially a concept and convention. During development, we place all packages in the <cite>src</cite> directory and run <cite>colcon</cite> for building in the same directory as <cite>src</cite>. The build results (<cite>build</cite>, <cite>install</cite>) and logs (<cite>log</cite>) are kept at the same level as <cite>src</cite>. Next, navigate to the <cite>chapt2</cite> directory in the terminal and enter the commands in Listing 2-28.</p>
+<p><strong>Listing 2-28: Moving Packages to chapt2_ws/src/</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mv<span class="w"> </span>demo_cpp_pkg/<span class="w">   </span>chapt2_ws/src/
+$<span class="w"> </span>mv<span class="w"> </span>demo_python_pkg/<span class="w">   </span>chapt2_ws/src/
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>build/<span class="w"> </span>install/<span class="w"> </span>log/
+</pre></div>
+</div>
+<p>The first two commands in Listing 2-28 move the existing packages to <cite>chapt2_ws/src/</cite>, and the third command deletes the directories generated during previous builds. Next, navigate to the <cite>chapt2/chapt2_ws/</cite> directory in the terminal and enter the command in Listing 2-29 to build the packages.</p>
+<p><strong>Listing 2-29: Building the Packages</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build
+---
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_cpp_pkg
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_python_pkg
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_python_pkg<span class="w"> </span><span class="o">[</span><span class="m">0</span>.94s<span class="o">]</span>
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_cpp_pkg<span class="w"> </span><span class="o">[</span><span class="m">4</span>.19s<span class="o">]</span>
+
+Summary:<span class="w"> </span><span class="m">2</span><span class="w"> </span>packages<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">4</span>.34s<span class="o">]</span>
+</pre></div>
+</div>
+<p>The <cite>colcon build</cite> command lives up to expectations, scanning and building all packages in the current workspace. However, if you want to build a specific package, such as <cite>demo_cpp_pkg</cite>, you can use the <cite>–packages-select</cite> command followed by the package name. The test command is shown in Listing 2-30.</p>
+<p><strong>Listing 2-30: Building a Specific Package</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>demo_cpp_pkg
+---
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_cpp_pkg
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_cpp_pkg<span class="w"> </span><span class="o">[</span><span class="m">0</span>.19s<span class="o">]</span>
+
+Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>package<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">0</span>.29s<span class="o">]</span>
+</pre></div>
+</div>
+<p>When using <cite>colcon build</cite>, all packages will start building simultaneously, provided the CPU allows it. As shown in the build log in Listing 2-30, both packages start building at the same time, with <cite>demo_python_pkg</cite> finishing first, followed by <cite>demo_cpp_pkg</cite>.</p>
+<p>However, sometimes dependencies exist between packages in the same workspace. For example, <cite>demo_python_pkg</cite> might depend on the build results of <cite>demo_cpp_pkg</cite>. In this case, you need to build <cite>demo_cpp_pkg</cite> first, and then build <cite>demo_python_pkg</cite>. To achieve this, simply declare the dependency in the package’s manifest file. Open <cite>demo_python_pkg/package.xml</cite> and add a dependency on <cite>demo_cpp_pkg</cite>. The updated content is shown in Listing 2-31.</p>
+<p><strong>Listing 2-31: Adding a Dependency on a Package in the Workspace</strong></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+…
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>rclpy<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>demo_cpp_pkg<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_copyright<span class="nt">&lt;/test_depend&gt;</span>
+…
+<span class="nt">&lt;/package&gt;</span>
+</pre></div>
+</div>
+<p>After saving, enter the build command in Listing 2-32 again.</p>
+<p><strong>Listing 2-32: Controlling Build Order Through Dependencies</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build
+---
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_cpp_pkg
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_cpp_pkg<span class="w"> </span><span class="o">[</span><span class="m">0</span>.18s<span class="o">]</span>
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_python_pkg
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_python_pkg<span class="w"> </span><span class="o">[</span><span class="m">0</span>.56s<span class="o">]</span>
+
+Summary:<span class="w"> </span><span class="m">2</span><span class="w"> </span>packages<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">0</span>.85s<span class="o">]</span>
+</pre></div>
+</div>
+<p>As you can see, after running the command, <cite>demo_cpp_pkg</cite> is built first, and then <cite>demo_python_pkg</cite> starts building.</p>
+<p>With this, our learning about ROS 2 packages and workspaces comes to an end. The next focus will be on the code itself. So, take a short break, and let’s dive into some foundational knowledge needed for ROS 2 programming.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../chapter2_3/chapter2_3_2.html" class="btn btn-neutral float-left" title="2.3.2 Package Structure Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter2_5/chapter2_5.html" class="btn btn-neutral float-right" title="2.5 ROS 2 Basics: Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

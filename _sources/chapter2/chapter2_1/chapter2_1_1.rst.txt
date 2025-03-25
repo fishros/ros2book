@@ -1,3 +1,7 @@
+2.1.1 Python Example
+====================
+
+
 ROS 2 provides a rich Python client library, allowing you to create nodes with simple function calls.
 
 Create a `chapt2/` folder in your home directory and open it with VS Code. Then, create a `ros2_python_node.py` file and write the content from Listing 2-1 in the file.
@@ -81,6 +85,21 @@ Using `{}` to enclose specific keywords represents the corresponding message. In
 With this, our first Python node is complete. However, you might notice that there are no code hints while writing. This is because the Python plugin is not installed. As shown in Figure 2-1, open the VS Code extensions, search for "Python," and install the first plugin.
 
 .. figure:: figure2-1.png
-    :alt: Editing Interface
+    :alt: Install Plugin
+    :align: center
 
-    Figure 2-1 Editing Interface
+    Figure 2-1 Install Plugin
+
+After installing the plugin, when you edit the code again, you’ll notice that code hints appear as shown in Figure 2-2. If you hover your mouse over a function for a while, the function’s documentation will pop up, as shown in Figure 2-3.
+
+.. figure:: figure2-2.png
+    :alt: Code Hinting
+    :align: center
+
+    Figure 2-2 Code Hinting
+
+.. figure:: figure2-3.png
+    :alt: Function Annotation
+    :align: center
+
+    Figure 2-3 Function Annotation

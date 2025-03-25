@@ -7,6 +7,7 @@ Next, return to VirtualBox and click the "New" button on the toolbar. You will s
 
 .. figure:: figure1-6.png
     :alt: VirtualBox Create New Virtual Machine Interface
+    :align: center
 
     Figure 1-6 VirtualBox Create New Virtual Machine Interface
 
@@ -14,6 +15,7 @@ Next, you will see the interface for setting the virtual machine's memory and pr
 
 .. figure:: figure1-7.png
     :alt: Virtual Machine Memory and Processor Count Settings Interface
+    :align: center
 
     Figure 1-7 Virtual Machine Memory and Processor Count Settings Interface
 
@@ -21,11 +23,13 @@ Next, you will see the virtual hard disk setup interface as shown in Figure 1-8.
 
 .. figure:: figure1-8.png
     :alt: Virtual Hard Disk Setup Interface
+    :align: center
 
     Figure 1-8 Virtual Hard Disk Setup Interface
 
 .. figure:: figure1-9.png
     :alt: Virtual Machine Start Button
+    :align: center
 
     Figure 1-9 VVirtual Machine Start Button
 
@@ -33,11 +37,13 @@ On the first startup, you will see the selection interface shown in Figure 1-10.
 
 .. figure:: figure1-10.png
     :alt: First Boot Selection Interface
+    :align: center
 
     Figure 1-10 First Boot Selection Interface
 
 .. figure:: figure1-11.png
     :alt: Installer Interface
+    :align: center
 
     Figure 1-11 Installer Interface
 
@@ -45,11 +51,13 @@ As shown in Figure 1-12, select "Chinese (Simplified)" on the installer's langua
 
 .. figure:: figure1-12.png
     :alt: Select Language
+    :align: center
 
     Figure 1-12 Select Language
 
 .. figure:: figure1-13.png
     :alt: Updates and Other Software Selection
+    :align: center
 
     Figure 1-13 Updates and Other Software Selection
 
@@ -57,6 +65,7 @@ On the installation type interface, use the default erase option, and then click
 
 .. figure:: figure1-14.png
     :alt: Confirm Writing Changes to Disk Interface
+    :align: center
 
     Figure 1-14 Confirm Writing Changes to Disk Interface
 
@@ -64,6 +73,7 @@ Next, on the location selection interface, simply choose your location and click
 
 .. figure:: figure1-15.png
     :alt: Username and Password Setup Interface
+    :align: center
 
     Figure 1-15 Username and Password Setup Interface
 
@@ -73,6 +83,7 @@ Once you see the prompt indicating that the installation is complete, click "Res
 
 .. figure:: figure1-16.png
     :alt: Installation Interface
+    :align: center
 
     Figure 1-16 Installation Interface
 

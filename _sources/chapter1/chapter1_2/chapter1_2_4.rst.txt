@@ -7,5 +7,6 @@ In the Ubuntu system, right-click on a blank area of the desktop and select "Ope
 
 .. figure:: figure1-17.png
     :alt: Ubuntu Terminal
+    :align: center
 
     Figure 1-17 Ubuntu Terminal

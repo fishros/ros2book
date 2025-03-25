@@ -61,6 +61,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
 
@@ -94,67 +95,67 @@
 <h1>1.2.3 Installing Ubuntu 22.04 in the Virtual Machine<a class="headerlink" href="#installing-ubuntu-22-04-in-the-virtual-machine" title="Link to this heading"></a></h1>
 <p>To install the system, we need a system image. Since accessing the official Ubuntu website can be unstable, we can download the image from a domestic mirror site, such as: <a class="reference external" href="http://mirrors.ustc.edu.cn/ubuntu-releases/22.04">http://mirrors.ustc.edu.cn/ubuntu-releases/22.04</a>. Visit the URL and click on <cite>ubuntu-22.04.x-desktop-amd64.iso</cite> to start the download, where <cite>x</cite> represents the minor version code, which may vary depending on the time of access. After the download is complete, you will obtain a system image file with the <cite>.iso</cite> extension.</p>
 <p>Next, return to VirtualBox and click the “New” button on the toolbar. You will see an interface as shown in Figure 1-6. Enter a name, select the folder where you want to place the virtual machine, and choose the <cite>.iso</cite> image file you just downloaded in the virtual optical disk section. Finally, remember to check the “Skip Automatic Installation” option, and click “Next” to proceed.</p>
-<figure class="align-default" id="id1">
+<figure class="align-center" id="id1">
 <img alt="VirtualBox Create New Virtual Machine Interface" src="../../_images/figure1-6.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-6 VirtualBox Create New Virtual Machine Interface</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Next, you will see the interface for setting the virtual machine’s memory and processor count, as shown in Figure 1-7. You can configure these settings based on your machine’s specifications. Once the setup is complete, click “Next” to proceed.</p>
-<figure class="align-default" id="id2">
+<figure class="align-center" id="id2">
 <img alt="Virtual Machine Memory and Processor Count Settings Interface" src="../../_images/figure1-7.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-7 Virtual Machine Memory and Processor Count Settings Interface</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Next, you will see the virtual hard disk setup interface as shown in Figure 1-8. Here, we allocate 120GB of space, as ROS 2 is a powerful platform and will likely require significant storage. Finally, click “Next” and then “Finish” to complete the virtual machine creation. Once created, select the virtual machine and click the start button shown in Figure 1-9 to launch it.</p>
-<figure class="align-default" id="id3">
+<figure class="align-center" id="id3">
 <img alt="Virtual Hard Disk Setup Interface" src="../../_images/figure1-8.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-8 Virtual Hard Disk Setup Interface</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id4">
+<figure class="align-center" id="id4">
 <img alt="Virtual Machine Start Button" src="../../_images/figure1-9.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-9 VVirtual Machine Start Button</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>On the first startup, you will see the selection interface shown in Figure 1-10. Use the keyboard arrow keys to select “Try or Install Ubuntu” and press Enter. After that, you will see the installer interface shown in Figure 1-11.</p>
-<figure class="align-default" id="id5">
+<figure class="align-center" id="id5">
 <img alt="First Boot Selection Interface" src="../../_images/figure1-10.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-10 First Boot Selection Interface</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id6">
+<figure class="align-center" id="id6">
 <img alt="Installer Interface" src="../../_images/figure1-11.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-11 Installer Interface</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>As shown in Figure 1-12, select “Chinese (Simplified)” on the installer’s language selection interface, and then click “Install Ubuntu.” On the keyboard layout page, click “Continue” again to proceed to the interface shown in Figure 1-13. Here, choose “Minimal Installation” and uncheck the option to download updates during installation. Then, click “Continue” to proceed to the installation type page.</p>
-<figure class="align-default" id="id7">
+<figure class="align-center" id="id7">
 <img alt="Select Language" src="../../_images/figure1-12.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-12 Select Language</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<figure class="align-default" id="id8">
+<figure class="align-center" id="id8">
 <img alt="Updates and Other Software Selection" src="../../_images/figure1-13.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-13 Updates and Other Software Selection</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>On the installation type interface, use the default erase option, and then click “Install Now.” At this point, a confirmation window as shown in Figure 1-14 will pop up. Click “Continue” to proceed.</p>
-<figure class="align-default" id="id9">
+<figure class="align-center" id="id9">
 <img alt="Confirm Writing Changes to Disk Interface" src="../../_images/figure1-14.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-14 Confirm Writing Changes to Disk Interface</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>Next, on the location selection interface, simply choose your location and click “Continue.” You will then proceed to the user setup interface shown in Figure 1-15. Set your username and password. Since you will frequently need to enter the password later, it can be kept short to avoid input errors. After that, click “Continue” to begin the formal installation process.</p>
-<figure class="align-default" id="id10">
+<figure class="align-center" id="id10">
 <img alt="Username and Password Setup Interface" src="../../_images/figure1-15.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-15 Username and Password Setup Interface</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
@@ -162,7 +163,7 @@
 </figure>
 <p>Next, simply wait for the installation to complete. If you encounter a section that takes a long time to install, you can click “Skip” to speed up the installation process.</p>
 <p>Once you see the prompt indicating that the installation is complete, click “Restart Now” to enter the system login interface shown in Figure 1-16. Use the mouse to click on your username, enter the password you just set, and press Enter to log into the system. Upon the first startup, there will be a prompt page, which you can close by clicking the button in the upper-right corner.</p>
-<figure class="align-default" id="id11">
+<figure class="align-center" id="id11">
 <img alt="Installation Interface" src="../../_images/figure1-16.png" />
 <figcaption>
 <p><span class="caption-text">Figure 1-16 Installation Interface</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>

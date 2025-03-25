@@ -7,6 +7,7 @@ As shown in Figure 1-1, your skin is equivalent to a robot's sensors, such as a 
 
 .. figure:: figure1-1.png
     :alt: Comparison between Robot and Human Behavior.
+    :align: center
 
     Figure 1-1 Comparison of Robot and Human Behavior
 
@@ -18,6 +19,7 @@ New Research - New Research
 
 .. figure:: figure1-2.png
     :alt: The proportion of time spent on reinventing the wheel and new research by different companies
+    :align: center
 
     Figure 1-2 The proportion of time spent on reinventing the wheel and new research by different companies
 

@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.5.2 Useful C++ New Features &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.5.3 Multithreading and Callback Functions" href="chapter2_5_3.html" />
+    <link rel="prev" title="2.5.1 Object-Oriented Programming" href="chapter2_5_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_1/chapter2_1.html">2.1 Writing Your First Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_2/chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_4/chapter2_4.html">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter2_5.html">2.5 ROS 2 Basics: Programming</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter2_5_1.html">2.5.1 Object-Oriented Programming</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.5.2 Useful C++ New Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-type-deduction-with-auto">1. Automatic Type Deduction with <cite>auto</cite></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smart-pointers">2. Smart Pointers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lambda-expressions">3. Lambda Expressions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-wrapper-std-function">4. Function Wrapper <cite>std::function</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2_5_3.html">2.5.3 Multithreading and Callback Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+          <li class="breadcrumb-item"><a href="chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+      <li class="breadcrumb-item active">2.5.2 Useful C++ New Features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_5/chapter2_5_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="useful-c-new-features">
+<h1>2.5.2 Useful C++ New Features<a class="headerlink" href="#useful-c-new-features" title="Link to this heading"></a></h1>
+<p>Since the release of C++98 in 1998, the C++ standard has undergone multiple updates and revisions, each introducing new syntax, semantics, and features to the standard library. After 2000, C++ experienced several significant updates, including C++11 in 2011, which introduced features like smart pointers and lambda expressions, followed by C++14 in 2014, C++17 in 2017, and C++20 in 2020.</p>
+<p>Compared to ROS 1, ROS 2 aligns more closely with modern robotics development requirements, as evident from its adoption of C++11 and higher standards. Many ROS 2 open-source libraries and frameworks also use C++ as the primary development language. Therefore, before diving deeper into ROS 2, let’s explore some useful C++ features.</p>
+<p>In previous sections, when instantiating a ROS 2 node with <cite>auto node = std::make_shared&lt;rclcpp::Node&gt;(“cpp_node”)</cite>, we used two C++ features. Let’s start by learning about these.</p>
+<section id="automatic-type-deduction-with-auto">
+<h2>1. Automatic Type Deduction with <cite>auto</cite><a class="headerlink" href="#automatic-type-deduction-with-auto" title="Link to this heading"></a></h2>
+<p>The first feature is <strong>automatic type deduction</strong>, represented by the <cite>auto</cite> keyword. When instantiating a ROS 2 node, we used <cite>auto</cite>, which automatically deduces the variable type based on the value assigned to it. Let’s test this by writing some code. Create a <cite>learn_auto.cpp</cite> file in <cite>chapt2_ws/src/demo_cpp_pkg/src/</cite> and write the code in Listing 2-48.</p>
+<p><strong>Listing 2-48: Testing Automatic Type Deduction in learn_auto.cpp</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Listing 2-48, we define three variables assigned integer, floating-point, and character values, all using the <cite>auto</cite> keyword. Then, we print these variables. Add the <cite>learn_auto</cite> node configuration to <cite>CMakeLists.txt</cite>, build it, and run it. The result is shown in Listing 2-49.</p>
+<p><strong>Listing 2-49: Testing Automatic Type Deduction</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_pkg<span class="w"> </span>learn_auto
+---
+<span class="m">5</span>
+<span class="m">3</span>.14
+a
+</pre></div>
+</div>
+<p>From the result, you can see that variables defined with <cite>auto</cite> behave the same as normally defined variables. However, <cite>auto</cite> can significantly simplify code in certain situations.</p>
+</section>
+<section id="smart-pointers">
+<h2>2. Smart Pointers<a class="headerlink" href="#smart-pointers" title="Link to this heading"></a></h2>
+<p>The second feature is <strong>smart pointers</strong>, introduced in C++11. Smart pointers manage dynamically allocated memory, avoiding issues like memory leaks and null pointer dereferencing. C++11 provides three types of smart pointers: <cite>std::unique_ptr</cite>, <cite>std::shared_ptr</cite>, and <cite>std::weak_ptr</cite>. In our code, <cite>std::make_shared</cite> creates a <cite>std::shared_ptr</cite> smart pointer. Let’s focus on <cite>std::shared_ptr</cite>.</p>
+<p>In C, pointers store the addresses of other variables, and smart pointers do the same. However, when dynamically allocated memory is no longer needed, you must manually call <cite>free</cite> to release it. Forgetting to do so or releasing it prematurely can cause memory leaks or null pointer issues. Smart pointers solve this by keeping track of how many pointers reference the same resource. When the reference count drops to zero, the memory is automatically released, preventing premature or forgotten releases.</p>
+<p>Let’s test this by writing some code. Create a <cite>learn_shared_ptr.cpp</cite> file in <cite>chapt2_ws/src/demo_cpp_pkg/src/</cite> and write the code in Listing 2-50.</p>
+<p><strong>Listing 2-50: Learning Smart Pointers</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;This is a str.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;p1&#39;s reference count: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">use_count</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, memory address: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;p1&#39;s reference count: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">use_count</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, memory address: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;p2&#39;s reference count: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">use_count</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, memory address: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">p1</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;p1&#39;s reference count: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">use_count</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, memory address: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;p2&#39;s reference count: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">use_count</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, memory address: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;p2&#39;s content: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p2</span><span class="o">-&gt;</span><span class="n">c_str</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Smart pointers are defined in the <cite>&lt;memory&gt;</cite> header under the <cite>std</cite> namespace, so we include <cite>&lt;memory&gt;</cite>. In the <cite>main</cite> function, we create a smart pointer <cite>p1</cite> pointing to a <cite>std::string</cite> using <cite>std::make_shared</cite>. We then print the reference count (<cite>p1.use_count()</cite>) and memory address (<cite>p1.get()</cite>) of the resource pointed to by <cite>p1</cite>. At this point, the resource is only referenced by <cite>p1</cite>, so the reference count should be 1.</p>
+<p>Next, we share the resource with <cite>p2</cite>. Now, both <cite>p1</cite> and <cite>p2</cite> reference the resource, so the reference count should be 2, and the memory address remains the same.</p>
+<p>Finally, we call <cite>p1.reset()</cite>, which resets <cite>p1</cite>. Now, <cite>p1</cite> no longer points to the resource, but <cite>p2</cite> still does. The reference count for <cite>p1</cite> becomes 0, while <cite>p2</cite>’s reference count becomes 1. The content of the resource pointed to by <cite>p2</cite> remains unchanged.</p>
+<p>Add the <cite>learn_shared_ptr</cite> node configuration to <cite>CMakeLists.txt</cite>, build it, and run it. The result is shown in Listing 2-51.</p>
+<p><strong>Listing 2-51: Testing Smart Pointers</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_pkg<span class="w"> </span>learn_shared_ptr
+---
+p1<span class="s1">&#39;s reference count: 1, memory address: 0x5621fcb6cec0</span>
+<span class="s1">p1&#39;</span>s<span class="w"> </span>reference<span class="w"> </span>count:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>memory<span class="w"> </span>address:<span class="w"> </span>0x5621fcb6cec0
+p2<span class="s1">&#39;s reference count: 2, memory address: 0x5621fcb6cec0</span>
+<span class="s1">p1&#39;</span>s<span class="w"> </span>reference<span class="w"> </span>count:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>memory<span class="w"> </span>address:<span class="w"> </span><span class="m">0</span>
+p2<span class="s1">&#39;s reference count: 1, memory address: 0x5621fcb6cec0</span>
+<span class="s1">p2&#39;</span>s<span class="w"> </span>content:<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>str.
+</pre></div>
+</div>
+<p>From the result in Listing 2-51, you can see that even though <cite>p1</cite> was reset, the resource is not released because <cite>p2</cite> still holds it. The resource’s value is still accessible. Imagine managing a resource with a smart shared pointer in a program. No matter how many functions the data is passed through, no resource copying occurs, significantly improving runtime efficiency. When all programs finish using the resource, it is automatically reclaimed, preventing memory leaks. This is why ROS 2 extensively uses smart pointers.</p>
+</section>
+<section id="lambda-expressions">
+<h2>3. Lambda Expressions<a class="headerlink" href="#lambda-expressions" title="Link to this heading"></a></h2>
+<p>You might have heard of anonymous functions. <strong>Lambda expressions</strong>, introduced in C++11, are a type of anonymous function. They have no name but can be called like regular functions. Lambda expressions have their own syntax, as shown in Listing 2-52.</p>
+<p><strong>Listing 2-52: Lambda Expression Syntax</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">capture</span><span class="w"> </span><span class="n">list</span><span class="p">](</span><span class="n">parameters</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">return_type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, the <cite>capture list</cite> captures external variables, <cite>parameters</cite> are the function parameters, <cite>return_type</cite> is the return type, and <cite>function body</cite> is the function’s implementation. Create a <cite>learn_lambda.cpp</cite> file in <cite>chapt2_ws/src/demo_cpp_pkg/src/</cite> and write the code in Listing 2-53.</p>
+<p><strong>Listing 2-53: Using a Lambda Function to Calculate and Print the Sum of Two Numbers</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">print_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">sum</span><span class="p">]()</span><span class="o">-&gt;</span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;3 + 5 = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<span class="w">    </span><span class="n">print_sum</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Listing 2-53, we first define a lambda function <cite>add</cite> that takes two integers and returns their sum. The capture list is empty, and the function body is <cite>return a + b</cite>. We then call <cite>add</cite> to calculate <cite>3 + 5</cite> and store the result in <cite>sum</cite>. Next, we define another lambda function <cite>print_sum</cite>, capturing <cite>sum</cite> in the capture list. This allows us to directly print the value of <cite>sum</cite> in the function body. Finally, add the <cite>learn_lambda</cite> node configuration to <cite>CMakeLists.txt</cite>, build it, and run it. The result is shown in Listing 2-54.</p>
+<p><strong>Listing 2-54: Running the learn_lambda Executable</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_pkg<span class="w"> </span>learn_lambda
+---
+<span class="m">3</span><span class="w"> </span>+<span class="w"> </span><span class="nv">5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>
+</pre></div>
+</div>
+<p>The result matches our expectations. You might not yet appreciate the benefits of lambda expressions, but you’ll grow to love them as you continue learning.</p>
+</section>
+<section id="function-wrapper-std-function">
+<h2>4. Function Wrapper <cite>std::function</cite><a class="headerlink" href="#function-wrapper-std-function" title="Link to this heading"></a></h2>
+<p><cite>std::function</cite>, introduced in C++11, is a general-purpose function wrapper. It can store any callable object (functions, function pointers, lambda expressions, etc.) and provide a unified calling interface. The concept might sound abstract, so let’s dive into some code. Create a <cite>learn_function.cpp</cite> file in <cite>chapt2_ws/src/demo_cpp_pkg/src/</cite> and write the code in Listing 2-55.</p>
+<p><strong>Listing 2-55: Using Different Types of Functions to Create Function Wrappers</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">save_with_free_fun</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">file_name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Called free function, saving: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">file_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FileSave</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">save_with_member_fun</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">file_name</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Called member function, saving: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">file_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">FileSave</span><span class="w"> </span><span class="n">file_save</span><span class="p">;</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">save_with_lambda_fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">file_name</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Called lambda function, saving: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">file_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="c1">// Store a free function in a function object</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">save1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">save_with_free_fun</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Store a lambda function in a function object</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">save2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">save_with_lambda_fun</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Store a member function in a function object</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">save3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">FileSave</span><span class="o">::</span><span class="n">save_with_member_fun</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">file_save</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_1</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// All functions can be called uniformly</span>
+<span class="w">    </span><span class="n">save1</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">save2</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">save3</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The code is a bit long, so let’s break it down. The <cite>&lt;functional&gt;</cite> header is included because it contains the function wrapper. We define a free function <cite>save_with_free_fun</cite> outside any class, which takes a file name as a parameter. Then, we define a <cite>FileSave</cite> class with a member function <cite>save_with_member_fun</cite> that also takes a file name as a parameter.</p>
+<p>In the <cite>main</cite> function, we first instantiate a <cite>FileSave</cite> object <cite>file_save</cite> and create a lambda function <cite>save_with_lambda_fun</cite>. Next, we create three <cite>std::function&lt;void(const std::string &amp;)&gt;</cite> objects using three different methods: direct assignment of a free function, assignment of a lambda function, and binding a member function using <cite>std::bind</cite>. Finally, we call the three wrapped functions.</p>
+<p>Let’s focus on <cite>std::bind</cite>. It binds a member function to an object, turning it into a <cite>std::function</cite> object. Normally, you call a member function using the object and function name, like <cite>file_save.save_with_member_fun</cite>. Here, <cite>std::bind</cite> binds the member function <cite>FileSave::save_with_member_fun</cite> to the object <cite>file_save</cite> and uses <cite>std::placeholders::_1</cite> to reserve a spot for the function’s parameter.</p>
+<p>Add the <cite>learn_function</cite> node configuration to <cite>CMakeLists.txt</cite>, build it, and run it. The result is shown in Listing 2-56.</p>
+<p><strong>Listing 2-56: Running learn_function</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_cpp_pkg<span class="w"> </span>learn_function
+---
+Called<span class="w"> </span>free<span class="w"> </span><span class="k">function</span>,<span class="w"> </span>saving:<span class="w"> </span>file.txt
+Called<span class="w"> </span>lambda<span class="w"> </span><span class="k">function</span>,<span class="w"> </span>saving:<span class="w"> </span>file.txt
+Called<span class="w"> </span>member<span class="w"> </span><span class="k">function</span>,<span class="w"> </span>saving:<span class="w"> </span>file.txt
+</pre></div>
+</div>
+<p>By now, you’ve learned many new C++ features. With this foundation, you’ll find it much easier to dive into ROS 2 robotics development using C++. Next, we’ll explore the final topic needed for future development: <strong>multithreading and callback functions</strong>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter2_5_1.html" class="btn btn-neutral float-left" title="2.5.1 Object-Oriented Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter2_5_3.html" class="btn btn-neutral float-right" title="2.5.3 Multithreading and Callback Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

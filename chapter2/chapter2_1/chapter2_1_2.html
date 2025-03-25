@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.1.2 C++ Example &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2 Organizing Python Nodes Using Packages" href="../chapter2_2/chapter2_2.html" />
+    <link rel="prev" title="2.1.1 Python Example" href="chapter2_1_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter2_1.html">2.1 Writing Your First Node</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter2_1_1.html">2.1.1 Python Example</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.1.2 C++ Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_2/chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_4/chapter2_4.html">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_5/chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+          <li class="breadcrumb-item"><a href="chapter2_1.html">2.1 Writing Your First Node</a></li>
+      <li class="breadcrumb-item active">2.1.2 C++ Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_1/chapter2_1_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="c-example">
+<h1>2.1.2 C++ Example<a class="headerlink" href="#c-example" title="Link to this heading"></a></h1>
+<p>While Python is often praised for its simplicity with the phrase “Life is short, I use Python,” its efficiency as an interpreted language can be a disadvantage in actual robotics product development. Therefore, while learning how to write nodes in Python, it’s also beneficial to learn the C++ implementation to complement each other’s strengths and weaknesses.</p>
+<p>Open the <cite>chapt2/</cite> folder with VS Code, create a new file <cite>ros2_cpp_node.cpp</cite>, and write the code shown in Listing 2-7.</p>
+<p><strong>Listing 2-7: A Simple C++ Node</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;cpp_node&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Hello C++ Node!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Listing 2-7, we first include the <cite>rclcpp.hpp</cite> header file from the <cite>rclcpp</cite> library. Then, in the <cite>main</cite> function, we call the <cite>init</cite> function to initialize and allocate resources, preparing for communication. Next, we use <cite>std::make_shared</cite> to create a <cite>rclcpp::Node</cite> object with the node name and return a smart pointer to this object. The <cite>auto</cite> keyword is used for type inference, deducing the type of <cite>node</cite> based on the return value. After that, we use the <cite>RCLCPP_INFO</cite> macro to call the node’s logger and print a log message. Finally, we use the <cite>spin</cite> function to start the node and continuously check for events, and call <cite>rclcpp::shutdown()</cite> to clean up resources at the end.</p>
+<p>If you have a background in C, understanding Listing 2-7 shouldn’t be difficult. What might confuse you is the use of smart pointers for creating the node object, as this is a new feature in C++11. For now, you only need a basic understanding, as we’ll revisit this topic later when discussing ROS 2 basics. Additionally, the <cite>::</cite> symbol is the scope resolution operator, used to access elements within a namespace or class. For example, the <cite>init</cite>, <cite>spin</cite>, and <cite>shutdown</cite> functions are all under the <cite>rclcpp</cite> namespace, so they are called using <cite>rclcpp::</cite> followed by the function name.</p>
+<p>Like any regular C++ program, the code needs to be compiled to generate an executable. For complex code, we use the CMake tool to build it. Following the <cite>CMakeLists.txt</cite> from Section 1.4.4, create a file with the same name in the <cite>chapt2/</cite> directory, with the content shown in Listing 2-8.</p>
+<p><strong>Listing 2-8: chapt2/CMakeLists.txt</strong></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="w"> </span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.8</span><span class="p">)</span>
+<span class="nb">project</span><span class="w"> </span><span class="p">(</span><span class="s">ros2_cpp</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">ros2_cpp_node</span><span class="w"> </span><span class="s">ros2_cpp_node.cpp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We still use CMake to build and compile. Open the terminal, navigate to the <cite>chapt2/</cite> directory, and enter the command in Listing 2-9.</p>
+<p><strong>Listing 2-9: Generating the Executable</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span>.
+---
+--<span class="w"> </span>The<span class="w"> </span>C<span class="w"> </span>compiler<span class="w"> </span>identification<span class="w"> </span>is<span class="w"> </span>GNU<span class="w"> </span><span class="m">11</span>.4.0
+...
+--<span class="w"> </span>Build<span class="w"> </span>files<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>written<span class="w"> </span>to:<span class="w"> </span>/home/fishros/chapt2
+
+$<span class="w"> </span>make
+---
+/home/fishros/chapt2/ros2_cpp_node.cpp:1:10:<span class="w"> </span>fatal<span class="w"> </span>error:<span class="w"> </span>rclcpp/rclcpp.hpp:<span class="w"> </span>No<span class="w"> </span>such<span class="w"> </span>file<span class="w"> </span>or<span class="w"> </span>directory
+<span class="w">    </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="c1">#include &quot;rclcpp/rclcpp.hpp&quot;</span>
+<span class="w">      </span><span class="p">|</span><span class="w">          </span>^~~~~~~~~~~~~~~~~~~
+compilation<span class="w"> </span>terminated.
+make<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>CMakeFiles/ros2_cpp_node.dir/build.make:76:<span class="w"> </span>CMakeFiles/ros2_cpp_node.dir/ros2_cpp_node.cpp.o<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">1</span>
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>CMakeFiles/Makefile2:83:<span class="w"> </span>CMakeFiles/ros2_cpp_node.dir/all<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">2</span>
+make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:91:<span class="w"> </span>all<span class="o">]</span><span class="w"> </span>Error<span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>Unfortunately, when using the <cite>make</cite> command to compile, you’ll encounter an error like the one shown in Listing 2-9. This is because the code includes the <cite>rclcpp.hpp</cite> header file, which is not in the system’s default header file directory but rather in the ROS 2 installation directory. We can use CMake directives to find and add dependencies for <cite>ros2_cpp_node</cite>. Append the instructions in Listing 2-10 to the end of <cite>chapt2/CMakeLists.txt</cite>.</p>
+<p><strong>Listing 2-10: Adding and Linking Dependencies</strong></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Find the path to the rclcpp header and library files</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">rclcpp</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="c"># Include the header files for the executable</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">ros2_cpp_node</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="o">${</span><span class="nv">rclcpp_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span>
+<span class="c"># Link the library files for the executable</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">ros2_cpp_node</span><span class="w"> </span><span class="o">${</span><span class="nv">rclcpp_LIBRARIES</span><span class="o">}</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The three lines in Listing 2-10 complete the steps of finding the dependency library, adding the header file path, and linking the dynamic library. The <cite>find_package</cite> directive searches for dependencies in additional directories. After finding the <cite>rclcpp</cite> header and library files, it also recursively finds the dependencies required by <cite>rclcpp</cite>.</p>
+<p>After adding these lines, run <cite>make</cite> again, and you’ll see that the executable <cite>ros2_cpp_node</cite> has been generated. The command and result are shown in Listing 2-11.</p>
+<p><strong>Listing 2-11: Running the Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./ros2_cpp_node
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1698472590</span>.755824396<span class="o">]</span><span class="w"> </span><span class="o">[</span>cpp_node<span class="o">]</span>:<span class="w"> </span>Hello<span class="w"> </span>C++<span class="w"> </span>Node!
+</pre></div>
+</div>
+<p>Open another terminal and enter the two commands in Listing 2-12.</p>
+<p><strong>Listing 2-12: Viewing the Node List and Information</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>node<span class="w"> </span>list
+---
+/cpp_node
+
+$<span class="w"> </span>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>/cpp_node
+---
+<span class="w">  </span>Subscribers:
+<span class="w">    </span>/parameter_events:<span class="w"> </span>rcl_interfaces/msg/ParameterEvent
+<span class="w">  </span>Publishers:
+<span class="w">    </span>/parameter_events:<span class="w"> </span>rcl_interfaces/msg/ParameterEvent
+<span class="w">    </span>/rosout:<span class="w"> </span>rcl_interfaces/msg/Log
+<span class="w">  </span>Service<span class="w"> </span>Servers:
+<span class="w">    </span>/cpp_node/describe_parameters:<span class="w"> </span>rcl_interfaces/srv/DescribeParameters
+<span class="w">    </span>/cpp_node/get_parameter_types:<span class="w"> </span>rcl_interfaces/srv/GetParameterTypes
+<span class="w">    </span>/cpp_node/get_parameters:<span class="w"> </span>rcl_interfaces/srv/GetParameters
+<span class="w">    </span>/cpp_node/list_parameters:<span class="w"> </span>rcl_interfaces/srv/ListParameters
+<span class="w">    </span>/cpp_node/set_parameters:<span class="w"> </span>rcl_interfaces/srv/SetParameters
+<span class="w">    </span>/cpp_node/set_parameters_atomically:<span class="w"> </span>rcl_interfaces/srv/SetParametersAtomically
+<span class="w">  </span>Service<span class="w"> </span>Clients:
+
+<span class="w">  </span>Action<span class="w"> </span>Servers:
+
+<span class="w">  </span>Action<span class="w"> </span>Clients:
+</pre></div>
+</div>
+<p>You can see that the first command returns <cite>/cpp_node</cite>, and the second command, <cite>ros2 node info</cite>, is another command under the node module of the ROS 2 command-line tool. It is used to view information about a specific node. After running it, you’ll see details about the node’s subscribers, publishers, services, and more.</p>
+<p>With this, your first C++ ROS 2 node is complete. However, the above steps have left a small trap for the next part of the learning process. The <cite>CMakeLists.txt</cite> file will be searched and mistakenly used by the ROS 2 build tool we’ll learn about next. To ensure smooth progress in the upcoming lessons, please delete or rename the <cite>chapt2/CMakeLists.txt</cite> file. Additionally, did you notice that there were no code hints while writing the code? The answer is likely no, and the reason is that we haven’t installed and configured the C++ plugin for VS Code. Open the VS Code extensions, search for “C++ Extension,” and install the first plugin shown in Figure 2-4.</p>
+<figure class="align-center" id="id1">
+<img alt="Install C/C++ Extension Pack" src="../../_images/figure2-4.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-4 Install C/C++ Extension Pack</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>After the installation is complete, return to the code file. As shown in Figure 2-5, you’ll notice that the line containing the header file now has a red squiggly underline. Click on that line with your mouse, and VS Code will display a quick-fix lightbulb. Click on “Edit ‘includedPath’ settings” to jump to the settings interface.</p>
+<figure class="align-center" id="id2">
+<img alt="Edit Header File Paths" src="../../_images/figure2-5.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-5 Edit Header File Paths</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>As shown in Figure 2-6, add the directory <cite>/opt/ros/${ROS_DISTRO}/include/**</cite> (where <cite>${ROS_DISTRO}</cite> is your ROS 2 distribution name, e.g., <cite>humble</cite>) to the settings interface. Then, click on a blank area outside the input box to save the changes.</p>
+<figure class="align-center" id="id3">
+<img alt="Include ROS 2 Installation Path" src="../../_images/figure2-6.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-6 Include ROS 2 Installation Path</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Next, reopen the code file that previously had errors. You’ll notice that the header file error has disappeared, and both code hints (as shown in Figure 2-7) and function comments (as shown in Figure 2-8) are now working properly.</p>
+<figure class="align-center" id="id4">
+<img alt="Check Code Hinting" src="../../_images/figure2-7.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-7 Check Code Hinting</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<img alt="View Function Explanation" src="../../_images/figure2-8.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-8 View Function Explanation</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>After configuring the header file directory, a <cite>.vscode/c_cpp_properties.json</cite> file will be generated in the current working directory of VS Code. The header file configuration will be written under the <cite>includePath</cite> item in this file. Therefore, you can also directly edit this file to add header file configurations. Note that since this file only exists in the current directory, you’ll need to reconfigure it if you change the working directory.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter2_1_1.html" class="btn btn-neutral float-left" title="2.1.1 Python Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter2_2/chapter2_2.html" class="btn btn-neutral float-right" title="2.2 Organizing Python Nodes Using Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

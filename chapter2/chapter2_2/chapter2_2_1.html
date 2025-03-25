@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.2.1 Writing Python Nodes in a Package &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.2.2 Package Structure Analysis" href="chapter2_2_2.html" />
+    <link rel="prev" title="2.2 Organizing Python Nodes Using Packages" href="chapter2_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_1/chapter2_1.html">2.1 Writing Your First Node</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.2.1 Writing Python Nodes in a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2_2_2.html">2.2.2 Package Structure Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_4/chapter2_4.html">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_5/chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+          <li class="breadcrumb-item"><a href="chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+      <li class="breadcrumb-item active">2.2.1 Writing Python Nodes in a Package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter2/chapter2_2/chapter2_2_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="writing-python-nodes-in-a-package">
+<h1>2.2.1 Writing Python Nodes in a Package<a class="headerlink" href="#writing-python-nodes-in-a-package" title="Link to this heading"></a></h1>
+<p>First, open the <cite>chapt2</cite> folder in your home directory using VS Code and open the integrated terminal. Enter the command shown in Listing 2-13.</p>
+<p><strong>Listing 2-13: Creating a Python Package</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>demo_python_pkg<span class="w"> </span>--build-type<span class="w"> </span>ament_python<span class="w"> </span>--license<span class="w"> </span>Apache-2.0
+---
+going<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>package
+package<span class="w"> </span>name:<span class="w"> </span>demo_python_pkg
+destination<span class="w"> </span>directory:<span class="w"> </span>/home/fishros/chapt2
+package<span class="w"> </span>format:<span class="w"> </span><span class="m">3</span>
+version:<span class="w"> </span><span class="m">0</span>.0.0
+description:<span class="w"> </span>TODO:<span class="w"> </span>Package<span class="w"> </span>description
+maintainer:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;fishros &lt;fishros@todo.todo&gt;&#39;</span><span class="o">]</span>
+licenses:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Apache-2.0&#39;</span><span class="o">]</span>
+build<span class="w"> </span>type:<span class="w"> </span>ament_python
+dependencies:<span class="w"> </span><span class="o">[]</span>
+…
+</pre></div>
+</div>
+<p>In Listing 2-13, <cite>ros2 pkg create</cite> is a command under the <cite>pkg</cite> module of the ROS 2 command-line tool, used to create a package. <cite>demo_python_pkg</cite> is the name of the package, and the <cite>–build-type ament_python</cite> flag specifies that the package’s build type is <cite>ament_python</cite>. The <cite>–license Apache-2.0</cite> flag declares the open-source license for the package. From the log, it’s clear that this command creates a <cite>demo_python_pkg</cite> folder in the current terminal directory and generates some default files and folders within it. Expand this folder in the VS Code Explorer on the left to see the contents as shown in Figure 2-9.</p>
+<figure class="align-center" id="id1">
+<img alt="demo_python_pkg Package Structure Diagram" src="../../_images/figure2-9.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-9 demo_python_pkg Package Structure Diagram</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The analysis of the file structure within this package will be covered in the next section. First, let’s learn how to write a node within the package. Create a new file <cite>python_node.py</cite> in the <cite>demo_python_pkg/demo_python_pkg</cite> directory, and then enter the code shown in Listing 2-14.</p>
+<p><strong>Listing 2-14: Simplest Python Node</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s2">&quot;python_node&quot;</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Hello Python Node!&#39;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This code is taken from the Python node we created in Section 2.1.1. However, if you look closely, you’ll notice that only the <cite>main</cite> function is defined here, and the code to call it has been removed. So, how do we run the <cite>main</cite> function? The answer is to tell the package where the <cite>main</cite> function is located. Open <cite>demo_python_pkg/setup.py</cite> and add <cite>‘python_node = demo_python_pkg.python_node:main’,</cite> under <cite>console_scripts</cite>. The added code and its location are shown in Listing 2-15.</p>
+<p><strong>Listing 2-15: Adding Configuration to Register the Python Node</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">…</span>
+    <span class="n">tests_require</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pytest&#39;</span><span class="p">],</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;python_node = demo_python_pkg.python_node:main&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+<span class="err">…</span>
+</pre></div>
+</div>
+<p>The <cite>setup.py</cite> file is a commonly used build configuration file in Python development. The added line means that executing <cite>python_node</cite> is equivalent to running the <cite>main</cite> function in the <cite>python_node</cite> file under the <cite>demo_python_pkg</cite> directory. After adding this, open <cite>demo_python_pkg/package.xml</cite> and add the dependency information. The added content and its location are shown in Listing 2-16.</p>
+<p><strong>Listing 2-16: Adding rclpy Dependency Declaration in demo_python_pkg/package.xml</strong></p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="cp">&lt;?xml-model href=&quot;http://download.ros.org/schema/package_format3.xsd&quot; schematypens=&quot;http://www.w3.org/2001/XMLSchema&quot;?&gt;</span>
+<span class="nt">&lt;package</span><span class="w"> </span><span class="na">format=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span>…
+<span class="w">  </span><span class="nt">&lt;license&gt;</span>Apache-2.0<span class="nt">&lt;/license&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>rclpy<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;test_depend&gt;</span>ament_copyright<span class="nt">&lt;/test_depend&gt;</span>
+<span class="w">  </span>…
+<span class="nt">&lt;/package&gt;</span>
+</pre></div>
+</div>
+<p>The <cite>package.xml</cite> file is the manifest file for ROS 2 packages, which will be explained in detail in the next section. Here, we add <cite>&lt;depend&gt;rclpy&lt;/depend&gt;</cite> because we use the <cite>rclpy</cite> library in our code, so it needs to be declared in the manifest file.</p>
+<p>Next, you can build the package in the <cite>chapt2</cite> directory using the command in Listing 2-17.</p>
+<p><strong>Listing 2-17: Building the Package Using colcon in the chapt2 Directory</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build
+---
+Starting<span class="w"> </span>&gt;&gt;&gt;<span class="w"> </span>demo_python_pkg
+Finished<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="w"> </span>demo_python_pkg<span class="w"> </span><span class="o">[</span><span class="m">0</span>.58s<span class="o">]</span>
+
+Summary:<span class="w"> </span><span class="m">1</span><span class="w"> </span>package<span class="w"> </span>finished<span class="w"> </span><span class="o">[</span><span class="m">0</span>.69s<span class="o">]</span>
+</pre></div>
+</div>
+<p>In Listing 2-17, <cite>colcon</cite> is the tool used in ROS 2 to build packages. Using <cite>colcon build</cite> here will build all packages in the current and subdirectories.</p>
+<p>After the build is complete, you’ll notice that three new folders—<cite>build</cite>, <cite>install</cite>, and <cite>log</cite>—have been created in the <cite>chapt2</cite> directory. The <cite>build</cite> folder contains intermediate files generated during the build process. The <cite>install</cite> folder is where the build results are placed. Opening the <cite>install</cite> folder, you’ll see the name of the <cite>demo_python_pkg</cite> package, and the executable <cite>python_node</cite> is placed in a specific directory within it. The <cite>log</cite> folder contains various log information generated during the build process. After building, how do we run it? By analogy with the command used to run the turtle simulator, use the command in Listing 2-18.</p>
+<p><strong>Listing 2-18: Running the python_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>python_node
+---
+Package<span class="w"> </span><span class="s1">&#39;demo_python_pkg&#39;</span><span class="w"> </span>not<span class="w"> </span>found
+</pre></div>
+</div>
+<p>After running the command in Listing 2-18, you’ll see a message indicating that the <cite>demo_python_pkg</cite> package cannot be found. As explained in Section 1.4.5, <cite>ros2 run</cite> looks for packages using the <cite>AMENT_PREFIX_PATH</cite> environment variable, which by default points to the ROS 2 system installation directory. The <cite>demo_python_pkg</cite> package is installed in the <cite>install</cite> directory, so we need to modify <cite>AMENT_PREFIX_PATH</cite> to help <cite>ros2 run</cite> find the package. In the <cite>install</cite> directory, there is a <cite>setup.bash</cite> script. Running it will automatically modify the <cite>AMENT_PREFIX_PATH</cite> environment variable. The command is shown in Listing 2-19.</p>
+<p><strong>Listing 2-19: Setting Environment Variables Using source</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$AMENT_PREFIX_PATH</span>
+---
+/home/fishros/chapt2/install/demo_python_pkg:/opt/ros/humble
+</pre></div>
+</div>
+<p>From Listing 2-19, you can see that after running <cite>source</cite>, the <cite>AMENT_PREFIX_PATH</cite> environment variable now includes the path to the newly built package. Now, running the node again will execute it successfully. The command and result are shown in Listing 2-20.</p>
+<p><strong>Listing 2-20: Running the python_node Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_pkg<span class="w"> </span>python_node
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1680635227</span>.584828594<span class="o">]</span><span class="w"> </span><span class="o">[</span>python_node<span class="o">]</span>:<span class="w"> </span>Hello<span class="w"> </span>Python<span class="w"> </span>Node!
+</pre></div>
+</div>
+<p>Note that since environment variables are only valid for the current terminal context, you’ll need to re-run <cite>source</cite> in a new terminal to find the node.</p>
+<p>At this point, you’ve successfully created a Python package, written a Python node within it, and built and run the node. Next, let’s analyze the Python package together.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter2_2.html" class="btn btn-neutral float-left" title="2.2 Organizing Python Nodes Using Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter2_2_2.html" class="btn btn-neutral float-right" title="2.2.2 Package Structure Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

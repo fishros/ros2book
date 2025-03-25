@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+  <title>2.1.1 Python Example &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -20,7 +20,7 @@
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="About" href="../../about.html" />
+    <link rel="next" title="2.1.2 C++ Example" href="chapter2_1_2.html" />
     <link rel="prev" title="2.1 Writing Your First Node" href="chapter2_1.html" /> 
 </head>
 
@@ -44,9 +44,23 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter2.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter2_1.html">2.1 Writing Your First Node</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.1.1 Python Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter2_1_2.html">2.1.2 C++ Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_2/chapter2_2.html">2.2 Organizing Python Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_3/chapter2_3.html">2.3 Organizing C++ Nodes Using Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_4/chapter2_4.html">2.4 Best Practices for Multi-Package Workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_5/chapter2_5.html">2.5 ROS 2 Basics: Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2_6/chapter2_6.html">2.6 Chapter Summary and Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
 
@@ -66,7 +80,7 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
           <li class="breadcrumb-item"><a href="chapter2_1.html">2.1 Writing Your First Node</a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">2.1.1 Python Example</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/chapter2/chapter2_1/chapter2_1_1.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -76,7 +90,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p>ROS 2 provides a rich Python client library, allowing you to create nodes with simple function calls.</p>
+  <section id="python-example">
+<h1>2.1.1 Python Example<a class="headerlink" href="#python-example" title="Link to this heading"></a></h1>
+<p>ROS 2 provides a rich Python client library, allowing you to create nodes with simple function calls.</p>
 <p>Create a <cite>chapt2/</cite> folder in your home directory and open it with VS Code. Then, create a <cite>ros2_python_node.py</cite> file and write the content from Listing 2-1 in the file.</p>
 <p><strong>Listing 2-1: A Simple Python Node</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
@@ -134,19 +150,33 @@ $<span class="w"> </span>python3<span class="w"> </span>ros2_python_node.py
 </div>
 <p>Using <cite>{}</cite> to enclose specific keywords represents the corresponding message. In addition to the three used in the code above, there are also <cite>severity</cite> for log level, <cite>name</cite> for logger name, <cite>file_name</cite> for file name, <cite>time</cite> for timestamp, and <cite>time_as_nanoseconds</cite> for timestamp in nanoseconds.</p>
 <p>With this, our first Python node is complete. However, you might notice that there are no code hints while writing. This is because the Python plugin is not installed. As shown in Figure 2-1, open the VS Code extensions, search for “Python,” and install the first plugin.</p>
-<figure class="align-default" id="id1">
-<img alt="Editing Interface" src="../../_images/figure2-1.png" />
+<figure class="align-center" id="id1">
+<img alt="Install Plugin" src="../../_images/figure2-1.png" />
 <figcaption>
-<p><span class="caption-text">Figure 2-1 Editing Interface</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-text">Figure 2-1 Install Plugin</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+<p>After installing the plugin, when you edit the code again, you’ll notice that code hints appear as shown in Figure 2-2. If you hover your mouse over a function for a while, the function’s documentation will pop up, as shown in Figure 2-3.</p>
+<figure class="align-center" id="id2">
+<img alt="Code Hinting" src="../../_images/figure2-2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-2 Code Hinting</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<img alt="Function Annotation" src="../../_images/figure2-3.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2-3 Function Annotation</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="chapter2_1.html" class="btn btn-neutral float-left" title="2.1 Writing Your First Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="chapter2_1_2.html" class="btn btn-neutral float-right" title="2.1.2 C++ Example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

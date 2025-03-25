@@ -5,6 +5,7 @@ The installation package for VirtualBox can be downloaded from its official webs
 
 .. figure:: figure1-4.png
     :alt: VirtualBox Download Interface
+    :align: center
 
     Figure 1-4 VirtualBox Download Interface
 
@@ -12,5 +13,6 @@ Seeing the interface shown in Figure 1-5 indicates that VirtualBox has been succ
 
 .. figure:: figure1-5.png
     :alt: VirtualBox Main Interface
+    :align: center
 
     Figure 1-5 VirtualBox Main Interface
