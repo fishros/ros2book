@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4.3 System Information Acquisition and Publication &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.4.4 Using Qt in a Package" href="chapter3_4_4.html" />
+    <link rel="prev" title="3.4.2 Custom Communication Interface" href="chapter3_4_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_2/chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_4.html">3.4 Best Practices for Topic Communication</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_1.html">3.4.1 Completing the Engineering Architecture Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_2.html">3.4.2 Custom Communication Interface</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.4.3 System Information Acquisition and Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_4.html">3.4.4 Using Qt in a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_5.html">3.4.5 Subscribing to Data and Displaying with Qt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+      <li class="breadcrumb-item active">3.4.3 System Information Acquisition and Publication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_4/chapter3_4_3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="system-information-acquisition-and-publication">
+<h1>3.4.3 System Information Acquisition and Publication<a class="headerlink" href="#system-information-acquisition-and-publication" title="Link to this heading"></a></h1>
+<p>In the src directory, use the command from Listing 3-31 to create the status_publisher package, and add the message interface status_interfaces along with the client library rclpy as its dependencies.</p>
+<p><strong>Listing 3-31: Create the status_publisher package</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>status_publisher<span class="w"> </span>--build-type<span class="w"> </span>ament_python<span class="w"> </span>--dependencies<span class="w"> </span>rclpy<span class="w"> </span>status_interfaces<span class="w"> </span>--license<span class="w"> </span>Apache-2.0
+</pre></div>
+</div>
+<p>Next, create the file <cite>sys_status_pub.py</cite> in the corresponding package directory, and then write the code as shown in Code Listing 3-32.</p>
+<p><strong>Listing 3-32: status_publisher/status_publisher/sys_status_pub.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">status_interfaces.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemStatus</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SysStatusPub</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status_publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span>
+            <span class="n">SystemStatus</span><span class="p">,</span> <span class="s1">&#39;sys_status&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cpu_percent</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">()</span>
+        <span class="n">memory_info</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">virtual_memory</span><span class="p">()</span>
+        <span class="n">net_io_counters</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">net_io_counters</span><span class="p">()</span>
+
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">SystemStatus</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_clock</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_msg</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">host_name</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">node</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">cpu_percent</span> <span class="o">=</span> <span class="n">cpu_percent</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">memory_percent</span> <span class="o">=</span> <span class="n">memory_info</span><span class="o">.</span><span class="n">percent</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">memory_total</span> <span class="o">=</span> <span class="n">memory_info</span><span class="o">.</span><span class="n">total</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">memory_available</span> <span class="o">=</span> <span class="n">memory_info</span><span class="o">.</span><span class="n">available</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">net_sent</span> <span class="o">=</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_sent</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">net_recv</span> <span class="o">=</span> <span class="n">net_io_counters</span><span class="o">.</span><span class="n">bytes_recv</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Publishing: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status_publisher_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">SysStatusPub</span><span class="p">(</span><span class="s1">&#39;sys_status_pub&#39;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In Code Listing 3-32, the code first imports the <cite>rclpy</cite> and <cite>Node</cite> modules, then imports the <cite>SystemStatus</cite> class from <cite>status_interfaces.msg</cite>, and finally imports the <cite>psutil</cite> and <cite>platform</cite> modules. Using <cite>psutil</cite>, we can obtain the system’s CPU, memory, and network information, while the <cite>platform</cite> module allows us to get the current hostname.</p>
+<p>Next, the <cite>SysStatusPub</cite> class is defined, which inherits from <cite>Node</cite>. In the initialization function, a publisher <cite>status_publisher_</cite> and a timer <cite>timer</cite> are created. The timer calls the <cite>timer_callback</cite> method every 1 second to publish data. In the <cite>timer_callback</cite> method, the current node clock time is first obtained using the built-in method <cite>get_clock().now()</cite> inherited from <cite>Node</cite>, and then converted into a <cite>builtin_interfaces.msg.Time</cite> message object using <cite>to_msg()</cite> and assigned to <cite>stamp</cite>. Subsequently, the CPU usage, memory information, and network information are obtained using <cite>psutil</cite>. Next, a <cite>SystemStatus</cite> message is constructed, and the hostname is obtained using <cite>platform.node()</cite>. The remaining data are assigned values accordingly. Since the default data units are in Bytes, dividing by 1024 twice converts the units to MB. Finally, the data is printed as a string, and the <cite>status_publisher_</cite> is called to publish the data.</p>
+<p>The <cite>main</cite> function contains basic operations, which are not elaborated here. Next, the <cite>sys_status_pub</cite> node is registered in the <cite>setup.py</cite> file, and then the command in Code Listing 3-33 is used to compile and run the code.</p>
+<p><strong>Listing 3-33: Run the system status publisher node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>status_publisher<span class="w"> </span>sys_status_pub
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681661308</span>.321525494<span class="o">]</span><span class="w"> </span><span class="o">[</span>sys_status_pub<span class="o">]</span>:<span class="w"> </span>发布:status_interfaces.msg.SystemStatus<span class="o">(</span><span class="nv">stamp</span><span class="o">=</span>builtin_interfaces.msg.Time<span class="o">(</span><span class="nv">sec</span><span class="o">=</span><span class="m">1681661308</span>,<span class="w"> </span><span class="nv">nanosec</span><span class="o">=</span><span class="m">315946639</span><span class="o">)</span>,<span class="w"> </span><span class="nv">host_name</span><span class="o">=</span><span class="s1">&#39;fishros-VirtualBox&#39;</span>,<span class="w"> </span><span class="nv">cpu_percent</span><span class="o">=</span><span class="m">3</span>.0,<span class="w"> </span><span class="nv">memory_percent</span><span class="o">=</span><span class="m">59</span>.6,<span class="w"> </span><span class="nv">memory_total</span><span class="o">=</span><span class="m">3923</span>.5078125,<span class="w"> </span><span class="nv">memory_available</span><span class="o">=</span><span class="m">1583</span>.6796875,<span class="w"> </span><span class="nv">net_sent</span><span class="o">=</span><span class="m">2</span>.044133186340332,<span class="w"> </span><span class="nv">net_recv</span><span class="o">=</span><span class="m">1</span>.3831653594970703<span class="o">)</span>
+</pre></div>
+</div>
+<p>In addition to viewing the data in the terminal, you can also check it using command-line tools. Open a new terminal and enter the two commands listed in Code Listing 3-34 one after the other.</p>
+<p><strong>Listing 3-34: Use the command line to print the data from the /sys_status topic.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/sys_status
+
+stamp:
+<span class="w">  </span>sec:<span class="w"> </span><span class="m">1681662249</span>
+<span class="w">  </span>nanosec:<span class="w"> </span><span class="m">315808820</span>
+host_name:<span class="w"> </span>fishros-VirtualBox
+cpu_percent:<span class="w"> </span><span class="m">16</span>.799999237060547
+memory_percent:<span class="w"> </span><span class="m">60</span>.900001525878906
+memory_total:<span class="w"> </span><span class="m">3923</span>.5078125
+memory_available:<span class="w"> </span><span class="m">1532</span>.8125
+net_sent:<span class="w"> </span><span class="m">2</span>.4008235931396484
+net_recv:<span class="w"> </span><span class="m">1</span>.6205368041992188
+</pre></div>
+</div>
+<p>At this point, we have completed the system status retrieval and publishing part. Next, let’s work on creating an interface to visualize the data.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_4_2.html" class="btn btn-neutral float-left" title="3.4.2 Custom Communication Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter3_4_4.html" class="btn btn-neutral float-right" title="3.4.4 Using Qt in a Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

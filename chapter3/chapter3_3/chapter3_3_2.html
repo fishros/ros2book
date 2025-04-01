@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.3.2 Closed-loop Control Using Pose Subscription &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.4 Best Practices for Topic Communication" href="../chapter3_4/chapter3_4.html" />
+    <link rel="prev" title="3.3.1 Publishing Velocity to Make the Turtle Draw a Circle" href="chapter3_3_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_2/chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter3_3_1.html">3.3.1 Publishing Velocity to Make the Turtle Draw a Circle</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.2 Closed-loop Control Using Pose Subscription</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_4/chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+      <li class="breadcrumb-item active">3.3.2 Closed-loop Control Using Pose Subscription</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_3/chapter3_3_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="closed-loop-control-using-pose-subscription">
+<h1>3.3.2 Closed-loop Control Using Pose Subscription<a class="headerlink" href="#closed-loop-control-using-pose-subscription" title="Link to this heading"></a></h1>
+<p>By publishing speed control commands to the topic <cite>/turtle1/cmd_vel</cite>, the turtle can be controlled to move. By subscribing to <cite>/turtle1/pose</cite>, the turtle’s real-time position can be obtained. With both real-time position and speed control available, closed-loop control can be implemented to move the turtle to a specified position. Closed-loop control refers to adjusting the system’s input by measuring and feeding back the output, thereby bringing the system’s output closer to the desired value. In this section, we will continuously monitor the error between the turtle’s current position and the target position, adjust the published commands in real time, and ultimately guide the turtle to the specified target point.</p>
+<p>In <cite>src/demo_cpp_topic/src</cite>, create a new file named <cite>turtle_control.cpp</cite> and write the code as shown in Listing 3-20.</p>
+<p><strong>Listing 3-20 turtle_control.cpp</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;geometry_msgs/msg/twist.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;turtlesim/msg/pose.hpp&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TurtleController</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="n">TurtleController</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;turtle_controller&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">velocity_publisher_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_publisher</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;/turtle1/cmd_vel&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pose_subscription_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_subscription</span><span class="o">&lt;</span><span class="n">turtlesim</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;/turtle1/pose&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">TurtleController</span><span class="o">::</span><span class="n">on_pose_received_</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">placeholders</span><span class="o">::</span><span class="n">_1</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">on_pose_received_</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">turtlesim</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">pose</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: Calculate error based on received position and publish velocity command</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Subscription</span><span class="o">&lt;</span><span class="n">turtlesim</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">pose_subscription_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Publisher</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">velocity_publisher_</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">target_x_</span><span class="p">{</span><span class="mf">1.0</span><span class="p">};</span><span class="w">  </span><span class="c1">// Target X position (default: 1.0)</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">target_y_</span><span class="p">{</span><span class="mf">1.0</span><span class="p">};</span><span class="w">  </span><span class="c1">// Target Y position (default: 1.0)</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">k_</span><span class="p">{</span><span class="mf">1.0</span><span class="p">};</span><span class="w">         </span><span class="c1">// Proportional coefficient (output = error * k)</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">max_speed_</span><span class="p">{</span><span class="mf">3.0</span><span class="p">};</span><span class="w"> </span><span class="c1">// Maximum linear velocity (default: 3.0)</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">TurtleController</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Listing 3-21, the ROS 2 related header files are first imported, where <cite>turtlesim/msg/Pose</cite> is the position topic message interface. This was previously seen in Section 3.1 when examining the simulator node details. The detailed definition of this message can be viewed using the command in Listing 3-21.</p>
+<p><strong>Listing 3-21 View turtlesim/msg/Pose interface definition</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">ros2</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="n">turtlesim</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">Pose</span>
+<span class="o">---</span>
+<span class="n">float32</span><span class="w"> </span><span class="n">x</span>
+<span class="n">float32</span><span class="w"> </span><span class="n">y</span>
+<span class="n">float32</span><span class="w"> </span><span class="n">theta</span>
+
+<span class="n">float32</span><span class="w"> </span><span class="n">linear_velocity</span>
+<span class="n">float32</span><span class="w"> </span><span class="n">angular_velocity</span>
+</pre></div>
+</div>
+<p>Following the code listing 3-20, a <cite>TurtleController</cite> class is defined, which inherits from <cite>Node</cite>, and directly sets the node name to <cite>turtle_controller</cite> in the constructor. In the constructor, a topic publisher <cite>velocity_publisher_</cite> is first created. Then, the <cite>create_subscription</cite> method is called, with the topic message interface set to <cite>turtlesim::msg::Pose</cite> using template syntax <cite>&lt;&gt;</cite>. This method has three input parameters: the first parameter <cite>“/turtle1/pose”</cite> is the topic name, the second parameter <cite>10</cite> is the history queue length, and the third parameter is a callback function encapsulated via a member method. When data is received in the background, this callback function will be invoked for processing.</p>
+<p>To react immediately upon receiving the current position each time, we place the core processing logic in the callback function. Next, let’s complete the <cite>on_pose_received_</cite> method by filling in the code from Listing 3-22.</p>
+<p><strong>Listing 3-22 View turtlesim/msg/Pose interface definition</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">on_pose_received_</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">turtlesim</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Pose</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">pose</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">Twist</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// 1. Record current position</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">current_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">current_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pose</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">get_logger</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;Current position:(x=%f,y=%f)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">current_x</span><span class="p">,</span><span class="w"> </span><span class="n">current_y</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 2. Calculate distance to target and angular difference from current turtle orientation</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">((</span><span class="n">target_x_</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current_x</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">target_x_</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current_x</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                  </span><span class="p">(</span><span class="n">target_y_</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current_y</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">target_y_</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current_y</span><span class="p">));</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">atan2</span><span class="p">(</span><span class="n">target_y_</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current_y</span><span class="p">,</span><span class="w"> </span><span class="n">target_x_</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">current_x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pose</span><span class="o">-&gt;</span><span class="n">theta</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 3. Control strategy: if distance &gt; 0.1 continue moving; if angular difference &gt; 0.2 rotate in place, otherwise move straight</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">distance</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="n">angular</span><span class="p">.</span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fabs</span><span class="p">(</span><span class="n">angle</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="k">else</span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Calculate output velocity via proportional controller</span>
+<span class="w">        </span><span class="n">message</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k_</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 4. Limit maximum value and publish message</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max_speed_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="n">message</span><span class="p">.</span><span class="n">linear</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max_speed_</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">velocity_publisher_</span><span class="o">-&gt;</span><span class="n">publish</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The parameter of the callback function is a shared pointer to the received data, so the first step is to obtain the current position of the turtle via the pointer and record it. The second step involves calculating the distance and angle between the current position and the target position using the Euclidean distance formula. Here, the function prototype of <cite>atan2</cite> is <cite>double atan2(double y, double x)</cite>, which is used to compute the arctangent of <cite>y</cite> divided by <cite>x</cite>. Geometrically, this calculates the angle of the target position relative to the current position. The result is then subtracted from the current orientation to derive the <cite>angle</cite>.The third step is the core closed-loop control strategy: if the distance is greater than 0.1, the angular and linear velocities are calculated. Next, it checks whether the angle difference exceeds 0.2. If it does, an angular velocity command is sent to steer the turtle; otherwise, the linear velocity is computed based on the distance and a proportional coefficient. It’s evident that the greater the distance, the faster the linear velocity.The fourth step involves capping the maximum linear velocity before publishing the control message.</p>
+<p>Add the instructions from Listing 3-23 to CMakeLists.txt to register the turtle_control node.</p>
+<p><strong>Listing 3-23 Registering the node in CMakeLists.txt</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="n">add_executable</span><span class="p">(</span><span class="n">turtle_control</span><span class="w"> </span><span class="n">src</span><span class="o">/</span><span class="n">turtle_control</span><span class="p">.</span><span class="n">cpp</span><span class="p">)</span>
+<span class="n">ament_target_dependencies</span><span class="p">(</span><span class="n">turtle_control</span><span class="w"> </span><span class="n">rclcpp</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="w"> </span><span class="n">turtlesim</span><span class="p">)</span>
+
+<span class="n">install</span><span class="p">(</span><span class="n">TARGETS</span>
+<span class="w">  </span><span class="n">turtle_control</span>
+<span class="w">  </span><span class="n">turtle_circle</span>
+<span class="w">  </span><span class="n">DESTINATION</span><span class="w"> </span><span class="n">lib</span><span class="o">/</span><span class="n">$</span><span class="p">{</span><span class="n">PROJECT_NAME</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="p">...</span>
+<span class="n">ament_package</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After completion, first run the turtle simulator, then compile and run the turtle_control node as shown in Listing 3-24.</p>
+<p><strong>Listing 3-24 Running the turtle control node</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">demo_cpp_topic</span><span class="w"> </span><span class="n">turtle_control</span>
+<span class="o">---</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="mf">1681554826.220945971</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">turtle_controller</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="n">Current</span><span class="w"> </span><span class="n">position</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">5.544445</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">5.544445</span><span class="p">)</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="mf">1681554826.237126893</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">turtle_controller</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="n">Current</span><span class="w"> </span><span class="n">position</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">5.544445</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">5.544445</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="mf">1699337616.177492400</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">turtle_controller</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="n">Current</span><span class="w"> </span><span class="n">position</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.994040</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">1.098285</span><span class="p">)</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>When observing the turtle simulator, you can see the turtle moving to the target position in a graceful arc, as shown in Figure 3-4.</p>
+<figure class="align-center" id="id1">
+<img alt="TControl the turtle to move to the target point." src="../../_images/figure3-4.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3-4 Control the turtle to move to the target point.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Alright, at this point, you’ve learned how to subscribe to and publish data over topics in your code, and you’ve also picked up some closed-loop control along the way. Take a short break—next, we’ll work on a small project to put it all into practice.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_3_1.html" class="btn btn-neutral float-left" title="3.3.1 Publishing Velocity to Make the Turtle Draw a Circle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter3_4/chapter3_4.html" class="btn btn-neutral float-right" title="3.4 Best Practices for Topic Communication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

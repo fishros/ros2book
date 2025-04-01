@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.2.2 Subscribing to Novels and Speech Synthesis &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.3 Topic Publishing and Subscribing in C++" href="../chapter3_3/chapter3_3.html" />
+    <link rel="prev" title="3.2.1 Publishing Novels via Topics" href="chapter3_2_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_2.html">3.2 Python Topic Subscription and Publishing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter3_2_1.html">3.2.1 Publishing Novels via Topics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.2.2 Subscribing to Novels and Speech Synthesis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_4/chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+      <li class="breadcrumb-item active">3.2.2 Subscribing to Novels and Speech Synthesis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_2/chapter3_2_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="subscribing-to-novels-and-speech-synthesis">
+<h1>3.2.2 Subscribing to Novels and Speech Synthesis<a class="headerlink" href="#subscribing-to-novels-and-speech-synthesis" title="Link to this heading"></a></h1>
+<p>Before subscribing to the novel topic, let’s first solve the speech synthesis issue. In Python, this can be achieved by installing third-party libraries. Open a terminal and enter the commands from Listing 3-14 sequentially.</p>
+<p><strong>Listing 3-14: Installing the Speech Synthesis Engine</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>-y
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>espeak-ng<span class="w"> </span>-y
+$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>espeakng
+</pre></div>
+</div>
+<p>The first command in Listing 3-14 uses apt to install pip3, Python 3’s package management tool. The second command uses apt to install the espeak-ng speech synthesis engine. The final command uses pip3 to install the espeakng Python library for programmatic access. After installing the dependencies, we can write the node code.</p>
+<p>Create a file named novel_sub_node.py under src/demo_python_topic/demo_python_topic with the content shown in Listing 3-15.</p>
+<p><strong>Listing 3-15: src/demo_python_topic/demo_python_topic/novel_sub_node.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">example_interfaces.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">Queue</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">espeakng</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NovelSubNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">novel_subscriber_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_subscription</span><span class="p">(</span>
+            <span class="n">String</span><span class="p">,</span> <span class="s1">&#39;novel&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">novel_callback</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speech_thread_</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">speak_thread</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speech_thread_</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">novel_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">speak_thread</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">speaker</span> <span class="o">=</span> <span class="n">espeakng</span><span class="o">.</span><span class="n">Speaker</span><span class="p">()</span>
+        <span class="n">speaker</span><span class="o">.</span><span class="n">voice</span> <span class="o">=</span> <span class="s1">&#39;zh&#39;</span>
+        <span class="k">while</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span><span class="o">.</span><span class="n">qsize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Reading aloud: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">speaker</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+                <span class="n">speaker</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">NovelSubNode</span><span class="p">(</span><span class="s2">&quot;novel_read&quot;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the code above, the library import section is largely similar to that of a subscription node, with the only additions being the time library and the espeakng speech synthesis library.</p>
+<p>The NovelSubNode implementation begins with its initialization method, where it first creates a queue to store received novel content. This queue is necessary because the speech synthesis speed cannot keep up with the message reception rate. The code then calls self.create_subscription(String, “novel”, self.novel_callback, 10) to create a topic subscriber. Here, the first parameter String specifies the message type, the second parameter “novel” is the topic name, and the third parameter novel_callback is the callback function that gets automatically invoked with the received data when spin processes novel topic events. The callback function novel_callback places the received data at the end of the queue. The fourth parameter (10) configures the Quality of Service by setting the history message queue length.</p>
+<p>After creating the subscriber, the code initializes a speech synthesis thread <a href="#id1"><span class="problematic" id="id2">speech_thread_</span></a>, which executes the speak_thread method. Within this method, it first creates an espeakng.Speaker object and configures it to use the Chinese voice (‘zh’). The thread then continuously checks rclpy’s status using rclpy.ok(). While active, it monitors the queue - when data is available, it retrieves the first item using <a href="#id3"><span class="problematic" id="id4">novels_queue_</span></a>.get(), synthesizes speech via speaker.say(), and waits for completion with speaker.wait(). If no data is available, the thread sleeps for 1 second using time.sleep(1).</p>
+<p>Finally, the main function instantiates the NovelSubNode and executes spin. After registering novel_sub_node in setup.py and compiling, the node can be run as shown in Listing 3-16.</p>
+<p><strong>Listing 3-16: Running the Novel Reading Node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_topic<span class="w"> </span>novel_sub_node
+---
+
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681469282</span>.747851102<span class="o">]</span><span class="w"> </span><span class="o">[</span>novel_read<span class="o">]</span>:<span class="w"> </span>Reading<span class="w"> </span>aloud:<span class="w"> </span><span class="s2">&quot;With hard work, you can definitely master ROS 2.&quot;</span>
+</pre></div>
+</div>
+<p>If you don’t see any output, it may be because no topic is being published. You can either manually publish data via the command line or simply start the novel publishing node.</p>
+<p>At this point, we’ve completed learning how to publish and subscribe to topics using Python, along with implementing speech synthesis in our code. Let’s take a short break before moving on to learn how to work with topics in C++.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_2_1.html" class="btn btn-neutral float-left" title="3.2.1 Publishing Novels via Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter3_3/chapter3_3.html" class="btn btn-neutral float-right" title="3.3 Topic Publishing and Subscribing in C++" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

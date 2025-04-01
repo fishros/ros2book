@@ -1,0 +1,217 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4.2 Custom Communication Interface &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.4.3 System Information Acquisition and Publication" href="chapter3_4_3.html" />
+    <link rel="prev" title="3.4.1 Completing the Engineering Architecture Design" href="chapter3_4_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_2/chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_4.html">3.4 Best Practices for Topic Communication</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_1.html">3.4.1 Completing the Engineering Architecture Design</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.4.2 Custom Communication Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_3.html">3.4.3 System Information Acquisition and Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_4.html">3.4.4 Using Qt in a Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_5.html">3.4.5 Subscribing to Data and Displaying with Qt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+      <li class="breadcrumb-item active">3.4.2 Custom Communication Interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_4/chapter3_4_2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="custom-communication-interface">
+<h1>3.4.2 Custom Communication Interface<a class="headerlink" href="#custom-communication-interface" title="Link to this heading"></a></h1>
+<p>After opening the terminal, enter the command from Code Listing 3-25 in the <cite>topic_practice_ws/src</cite> directory.</p>
+<p><strong>Listing 3-25: Create an interface package</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>status_interfaces<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>--dependencies<span class="w"> </span>rosidl_default_generators<span class="w"> </span>builtin_interfaces<span class="w"> </span>--license<span class="w"> </span>Apache-2.0
+---
+going<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>package
+package<span class="w"> </span>name:<span class="w"> </span>status_interfaces
+destination<span class="w"> </span>directory:<span class="w"> </span>/home/fishros/chapt3/topic_practice_ws/src
+package<span class="w"> </span>format:<span class="w"> </span><span class="m">3</span>
+version:<span class="w"> </span><span class="m">0</span>.0.0
+description:<span class="w"> </span>TODO:<span class="w"> </span>Package<span class="w"> </span>description
+maintainer:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;fishros &lt;fishros@todo.todo&gt;&#39;</span><span class="o">]</span>
+licenses:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Apache-2.0&#39;</span><span class="o">]</span>
+build<span class="w"> </span>type:<span class="w"> </span>ament_cmake
+dependencies:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;rosidl_default_generators&#39;</span>,<span class="s1">&#39;builtin_interfaces&#39;</span><span class="o">]</span>
+...
+</pre></div>
+</div>
+<p>The above instructions are used to create a <cite>status_interfaces</cite> package (with the build type <cite>ament_cmake</cite>) and add two dependencies to it: <cite>builtin_interfaces</cite> and <cite>rosidl_default_generators</cite>.</p>
+<p><cite>builtin_interfaces</cite> is an existing message interface package in ROS 2, which provides the <cite>Time</cite> interface for recording timestamps. <cite>rosidl_default_generators</cite> is a module used to convert custom message files into C++ and Python source code.</p>
+<p>In ROS 2, topic message definition files must be placed in the <cite>msg</cite> directory of the package. The filenames must start with an uppercase letter and can only contain alphanumeric characters.</p>
+<p>Next, create a <cite>msg</cite> directory under the package and add a new file named <cite>SystemStatus.msg</cite> in that directory. Then, write the content of <strong>Code Listing 3-26</strong> into the file.</p>
+<p><strong>Listing 3-26: src/status_interfaces/msg/SystemStatus.msg</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>builtin_interfaces/Time<span class="w"> </span>stamp<span class="w">  </span><span class="c1"># Timestamp</span>
+string<span class="w"> </span>host_name<span class="w">              </span><span class="c1"># System name</span>
+float32<span class="w"> </span>cpu_percent<span class="w">           </span><span class="c1"># CPU usage</span>
+float32<span class="w"> </span>memory_percent<span class="w">        </span><span class="c1"># Memory usage</span>
+float32<span class="w"> </span>memory_total<span class="w">          </span><span class="c1"># Total memory</span>
+float32<span class="w"> </span>memory_available<span class="w">      </span><span class="c1"># Available memory</span>
+float64<span class="w"> </span>net_sent<span class="w">              </span><span class="c1"># Total data sent over network</span>
+float64<span class="w"> </span>net_recv<span class="w">              </span><span class="c1"># Total data received over network</span>
+</pre></div>
+</div>
+<p>This gives us a message interface definition file. As we can see, the syntax for defining message files is similar to defining variables in C++, using a type + name format, where text following # is a comment.</p>
+<p>The timestamp is recorded using the Time type from the builtin_interfaces package. All other data types consist of string, float32, and float64, which are ROS 2’s built-in primitive types. Besides these three, ROS 2 also defines nine additional data types, as shown in Code Listing 3-27.</p>
+<p><strong>Listing 3-27: The nine data types supported by ROS 2 message interfaces.</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-<span class="w"> </span>bool
+-<span class="w"> </span>byte
+-<span class="w"> </span>char
+-<span class="w"> </span>float32,<span class="w"> </span>float64
+-<span class="w"> </span>int8,<span class="w"> </span>uint8
+-<span class="w"> </span>int16,<span class="w"> </span>uint16
+-<span class="w"> </span>int32,<span class="w"> </span>uint32
+-<span class="w"> </span>int6,<span class="w"> </span>uint64
+-<span class="w"> </span>string
+</pre></div>
+</div>
+<p>After defining the data interface file, the next step is to register it in CMakeLists.txt, declaring it as a message interface file and adding the builtin_interfaces dependency. Once completed, the CMakeLists.txt code will appear as shown in Code Listing 3-28.</p>
+<p><strong>Listing 3-28: src/status_interfaces/CMakeLists.txt</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find dependencies</span>
+find_package<span class="o">(</span>ament_cmake<span class="w"> </span>REQUIRED<span class="o">)</span>
+find_package<span class="o">(</span>rosidl_default_generators<span class="w"> </span>REQUIRED<span class="o">)</span>
+find_package<span class="o">(</span>builtin_interfaces<span class="w"> </span>REQUIRED<span class="o">)</span>
+
+rosidl_generate_interfaces<span class="o">(</span><span class="si">${</span><span class="nv">PROJECT_NAME</span><span class="si">}</span>
+<span class="w">  </span><span class="s2">&quot;msg/SystemStatus.msg&quot;</span>
+<span class="w">  </span>DEPENDENCIES<span class="w"> </span>builtin_interfaces
+<span class="o">)</span>
+...
+ament_package
+</pre></div>
+</div>
+<p>Since the custom message interface uses <cite>builtin_interfaces/Time</cite> to represent time, the <cite>find_package</cite> command is used in the above file to locate <cite>builtin_interfaces</cite>, and <cite>builtin_interfaces</cite> is added as a dependency in <cite>rosidl_generate_interfaces</cite>.</p>
+<p>In addition to modifying <cite>CMakeLists.txt</cite>, it is recommended to declare the dependency in the package manifest file <cite>package.xml</cite>. After completing these changes, the main file contents are as shown in Code Listing 3-29.</p>
+<p><strong>Listing 3-29: topic_practices_ws/src/status_interfaces/package.xml</strong></p>
+<p>Adding <cite>member_of_group</cite> in <cite>package.xml</cite> is to declare that this package is a message interface package, making it easier for ROS 2 to perform additional processing.</p>
+<p>Next, proceed to build the package. After the build is complete, you can use the command in <strong>Code Listing 3-30</strong> to verify whether the message interface was successfully built.</p>
+<p><strong>Listing 3-30: Check if the interface was built successfully</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$source</span><span class="w"> </span>install/setup.bash
+<span class="nv">$ros2</span><span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>status_interfaces/msg/SystemStatus
+---
+
+builtin_interfaces/Time<span class="w"> </span>stamp<span class="w">  </span><span class="c1"># Timestamp</span>
+<span class="w">        </span>int32<span class="w"> </span>sec
+<span class="w">        </span>uint32<span class="w"> </span>nanosec
+string<span class="w"> </span>host_name<span class="w">              </span><span class="c1"># System name</span>
+float32<span class="w"> </span>cpu_percent<span class="w">           </span><span class="c1"># CPU usage</span>
+float32<span class="w"> </span>memory_percent<span class="w">        </span><span class="c1"># Memory usage</span>
+float32<span class="w"> </span>memory_total<span class="w">          </span><span class="c1"># Total memory</span>
+float32<span class="w"> </span>memory_available<span class="w">      </span><span class="c1"># Available memory</span>
+float64<span class="w"> </span>net_sent<span class="w">              </span><span class="c1"># Total data sent over network</span>
+float64<span class="w"> </span>net_recv<span class="w">              </span><span class="c1"># Total data received over network</span>
+</pre></div>
+</div>
+<p>It should be noted that before using the command line to check, you should also use the <cite>source</cite> command to inform ROS 2 of the package’s installation location.</p>
+<p>In addition to using command-line tools to verify whether the build was successful, you can also check whether C++ header files have been generated in the <cite>install/status_interfaces/include/</cite> directory and whether the Python library for <cite>status_interfaces</cite> has been generated in the <cite>install/status_interfaces/local/lib/python3.10/dist-packages/</cite> directory.</p>
+<p>At this point, the work of creating the custom message interface is complete. With the message interface ready, we can now proceed to write code and use the interface to transmit data.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_4_1.html" class="btn btn-neutral float-left" title="3.4.1 Completing the Engineering Architecture Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter3_4_3.html" class="btn btn-neutral float-right" title="3.4.3 System Information Acquisition and Publication" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4.5 Subscribing to Data and Displaying with Qt &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.5 ROS 2 Basics: Introduction to Git" href="../chapter3_5/chapter3_5.html" />
+    <link rel="prev" title="3.4.4 Using Qt in a Package" href="chapter3_4_4.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_2/chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_4.html">3.4 Best Practices for Topic Communication</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_1.html">3.4.1 Completing the Engineering Architecture Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_2.html">3.4.2 Custom Communication Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_3.html">3.4.3 System Information Acquisition and Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_4_4.html">3.4.4 Using Qt in a Package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.4.5 Subscribing to Data and Displaying with Qt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+      <li class="breadcrumb-item active">3.4.5 Subscribing to Data and Displaying with Qt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_4/chapter3_4_5.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="subscribing-to-data-and-displaying-with-qt">
+<h1>3.4.5 Subscribing to Data and Displaying with Qt<a class="headerlink" href="#subscribing-to-data-and-displaying-with-qt" title="Link to this heading"></a></h1>
+<p>Create a new file named <cite>sys_status_display.cpp</cite> under <cite>src/status_display/src</cite>, and then write the code from Code Listing 3-39.</p>
+<p><strong>Listing 3-39: Run `hello_qt`</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QApplication&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QLabel&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;QString&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;status_interfaces/msg/system_status.hpp&quot;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="n">SystemStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status_interfaces</span><span class="o">::</span><span class="n">msg</span><span class="o">::</span><span class="n">SystemStatus</span><span class="p">;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SysStatusDisplay</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">  </span><span class="n">SysStatusDisplay</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Node</span><span class="p">(</span><span class="s">&quot;sys_status_display&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">subscription_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">create_subscription</span><span class="o">&lt;</span><span class="n">SystemStatus</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;sys_status&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">SystemStatus</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">label_</span><span class="o">-&gt;</span><span class="n">setText</span><span class="p">(</span><span class="n">get_qstr_from_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="c1">// Create an empty SystemStatus object and convert it to a QString for display</span>
+<span class="w">    </span><span class="n">label_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QLabel</span><span class="p">(</span><span class="n">get_qstr_from_msg</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">SystemStatus</span><span class="o">&gt;</span><span class="p">()));</span>
+<span class="w">    </span><span class="n">label_</span><span class="o">-&gt;</span><span class="n">show</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">QString</span><span class="w"> </span><span class="n">get_qstr_from_msg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SystemStatus</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: Extract and assemble the content of msg into a string</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromStdString</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Subscription</span><span class="o">&lt;</span><span class="n">SystemStatus</span><span class="o">&gt;::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">subscription_</span><span class="p">;</span>
+<span class="w">  </span><span class="n">QLabel</span><span class="o">*</span><span class="w"> </span><span class="n">label_</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Here, we first include the relevant Qt header files, followed by the <cite>rclcpp</cite> and the custom interface-generated <cite>system_status.hpp</cite> header file. To make the code more readable and concise, we use the <cite>using</cite> directive to create an alias <cite>SystemStatus</cite> for <cite>status_interfaces::msg::SystemStatus</cite>. We then define a <cite>SysStatusDisplay</cite> class that inherits from <cite>rclcpp::Node</cite>. In the constructor, the node name is directly set to <cite>sys_status_display</cite>. Below that, we initialize the <a href="#id3"><span class="problematic" id="id4">subscription_</span></a> using <cite>create_subscription</cite>, with a Lambda expression as the callback function. The <cite>&amp;</cite> symbol in the Lambda expression’s parameter list indicates that it can capture external variables by reference, which is why we can directly call <cite>label_</cite> to set the text within the expression. After initializing the subscriber, we continue to initialize <cite>label_</cite>, using a nested function call. First, we create an empty <cite>SystemStatus</cite> message and then convert it to a <cite>QString</cite> object for display using <cite>get_qstr_from_msg</cite>.</p>
+<p>Next, we complete the <cite>get_qstr_from_msg</cite> method by adding the code shown in Code Listing 3-40.</p>
+<p><strong>Listing 3-40: Run `hello_qt`</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">QString</span><span class="w"> </span><span class="nf">get_qstr_from_msg</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SystemStatus</span><span class="o">::</span><span class="n">SharedPtr</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span><span class="w"> </span><span class="n">show_str</span><span class="p">;</span>
+<span class="w">  </span><span class="n">show_str</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;===========System Status Visualization Tool============</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Data Time:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">stamp</span><span class="p">.</span><span class="n">sec</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">s</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Host Name:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">host_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;CPU Usage:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">cpu_percent</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">%</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Memory Usage:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">memory_percent</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">%</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Total Memory:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">memory_total</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">MB</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Available Memory:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">memory_available</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">MB</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Network Sent:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">net_sent</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">MB</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Network Received:</span><span class="se">\t</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">net_recv</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\t</span><span class="s">MB</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="w">      </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;==========================================&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">QString</span><span class="o">::</span><span class="n">fromStdString</span><span class="p">(</span><span class="n">show_str</span><span class="p">.</span><span class="n">str</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In Code Listing 3-40, we use <cite>std::stringstream</cite> and its <cite>&lt;&lt;</cite> operator to extract the data from <cite>msg</cite> and assemble it. We only use the seconds part of the timestamp. Then, we convert it to a <cite>std::string</cite> using the <cite>str()</cite> member function and pass it to the <cite>QString::fromStdString</cite> function to generate a <cite>QString</cite> object and return it.</p>
+<p>Finally, we write the main function. At the end of Code Listing 3-40, add the code shown in Code Listing 3-41.</p>
+<p><strong>Listing 3-41: Run `hello_qt`</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">  </span><span class="n">QApplication</span><span class="w"> </span><span class="n">app</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">SysStatusDisplay</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="n">spin_thread</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="n">spin_thread</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+<span class="w">  </span><span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We know that both <cite>rclcpp::spin</cite> and <cite>app.exec</cite> will block the program’s execution. If <cite>rclcpp::spin</cite> is called first, <cite>app.exec</cite> will not be executed, and Qt-related events will not be processed, resulting in a failure to display the interface properly. Conversely, if <cite>app.exec</cite> is called first, <cite>rclcpp::spin</cite> will not be executed, and ROS 2 will not be able to handle events properly, leading to a failure in receiving and sending data. Therefore, in the code above, we use multithreading to handle <cite>spin</cite> in a separate thread. When the interface exits and <cite>app.exec</cite> exits, we call <cite>rclcpp::shutdown</cite>, which will automatically terminate the <cite>spin_thread</cite>, and the program will exit normally.</p>
+<p>After writing the code, modify <cite>CMakeLists.txt</cite> and add the commands from Code Listing 3-42 to register the <cite>sys_status_display</cite> node.</p>
+<p><strong>Listing 3-42: Run `hello_qt`</strong></p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="err">...</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">sys_status_display</span><span class="w"> </span><span class="s">src/sys_status_display.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">sys_status_display</span><span class="w"> </span><span class="s">Qt5::Widgets</span><span class="p">)</span><span class="w">  </span><span class="c"># Use native CMake commands for non-ROS packages to link libraries</span>
+<span class="nb">ament_target_dependencies</span><span class="p">(</span><span class="s">sys_status_display</span><span class="w"> </span><span class="s">rclcpp</span><span class="w"> </span><span class="s">status_interfaces</span><span class="p">)</span>
+
+<span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span>
+<span class="w">  </span><span class="s">hello_qt</span>
+<span class="w">  </span><span class="s">sys_status_display</span>
+<span class="w">  </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="p">)</span>
+<span class="err">...</span>
+<span class="nb">ament_package</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Finally, build and run the node. The result is shown in Figure 3-7.</p>
+<figure class="align-center" id="id1">
+<img alt="Default Display Result" src="../../_images/figure3-7.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3-7 Default Display Result</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Since no publisher has been started, there is no data available. Open a new terminal, start the publisher, and then observe the interface again. The result is shown in Figure 3-8.</p>
+<figure class="align-center" id="id2">
+<img alt="The display result after receiving the topic data" src="../../_images/figure3-8.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3-8 The display result after receiving the topic data.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Well, seeing the data constantly updating on the interface must make you feel pretty happy, right? Yes, this project involves a lot of new knowledge, and it’s not easy. But anyway, your first hands-on project has been successfully completed, and you surely want to keep it well preserved. So, in the next section, let’s learn about the version control tool Git, which will help us manage our code better. Take a short break, and then complete the rest of this chapter in one go.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_4_4.html" class="btn btn-neutral float-left" title="3.4.4 Using Qt in a Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter3_5/chapter3_5.html" class="btn btn-neutral float-right" title="3.5 ROS 2 Basics: Introduction to Git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

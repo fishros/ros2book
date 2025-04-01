@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+  <title>3.1 Introduction to Topic Communication &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
 
@@ -20,7 +20,7 @@
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="About" href="../../about.html" />
+    <link rel="next" title="3.2 Python Topic Subscription and Publishing" href="../chapter3_2/chapter3_2.html" />
     <link rel="prev" title="Introduction" href="../chapter3.html" /> 
 </head>
 
@@ -44,10 +44,19 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_2/chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_4/chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 </ul>
 
@@ -66,7 +75,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">3.1 Introduction to Topic Communication</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/chapter3/chapter3_1/chapter3_1.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -76,13 +85,130 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="introduction-to-topic-communication">
+<h1>3.1 Introduction to Topic Communication<a class="headerlink" href="#introduction-to-topic-communication" title="Link to this heading"></a></h1>
+<p>ROS 2’s topic mechanism revolves around four key elements: <strong>publishers</strong>, <strong>subscribers</strong>, <strong>topic names</strong>, and <strong>topic types</strong>. As illustrated in Figure 3-1:
+- A <strong>publisher</strong> is analogous to the author of a public account.
+- A <strong>subscriber</strong> corresponds to the reader.
+- The <strong>topic name</strong> functions like the name of the public account.
+- The <strong>message interface</strong> (topic type) defines the structure of the content, similar to how a public account specifies its content format.</p>
+<figure class="align-center" id="id1">
+<img alt="Topic Mechanism and Public Account Analogy" src="../../_images/figure3-1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3-1 Topic Mechanism and Public Account Analogy</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>When we ran the turtle simulator and keyboard control nodes in Chapter 1, we observed through the rqt tool that nodes communicate by subscribing to and publishing topics with the same name to transmit control commands. However, we didn’t delve into the details at that time. Today, we’ll continue using the turtle simulator as an example to further explain topic communication.</p>
+<p>Open a terminal and enter the command in Listing 3-1 to start the turtle simulator.</p>
+<p><strong>Listing 3-1: Starting the Turtle Simulator</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681383588</span>.540304114<span class="o">]</span><span class="w"> </span><span class="o">[</span>turtlesim<span class="o">]</span>:<span class="w"> </span>Starting<span class="w"> </span>turtlesim<span class="w"> </span>with<span class="w"> </span>node<span class="w"> </span>name<span class="w"> </span>/turtlesim
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681383588</span>.548572512<span class="o">]</span><span class="w"> </span><span class="o">[</span>turtlesim<span class="o">]</span>:<span class="w"> </span>Spawning<span class="w"> </span>turtle<span class="w"> </span><span class="o">[</span>turtle1<span class="o">]</span><span class="w"> </span>at<span class="w"> </span><span class="nv">x</span><span class="o">=[</span><span class="m">5</span>.544445<span class="o">]</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=[</span><span class="m">5</span>.544445<span class="o">]</span>,<span class="w"> </span><span class="nv">theta</span><span class="o">=[</span><span class="m">0</span>.000000<span class="o">]</span>
+</pre></div>
+</div>
+<p>After starting the simulator, open a new terminal and use the command in Listing 3-2 to view the node information.</p>
+<p><strong>Listing 3-2: Viewing Node Information</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>node<span class="w"> </span>info<span class="w"> </span>/turtlesim
+---
+/turtlesim
+<span class="w">  </span>Subscribers:
+<span class="w">    </span>/parameter_events:<span class="w"> </span>rcl_interfaces/msg/ParameterEvent
+<span class="w">    </span>/turtle1/cmd_vel:<span class="w"> </span>geometry_msgs/msg/Twist
+<span class="w">  </span>Publishers:
+<span class="w">    </span>/parameter_events:<span class="w"> </span>rcl_interfaces/msg/ParameterEvent
+<span class="w">    </span>/rosout:<span class="w"> </span>rcl_interfaces/msg/Log
+<span class="w">    </span>/turtle1/color_sensor:<span class="w"> </span>turtlesim/msg/Color
+<span class="w">    </span>/turtle1/pose:<span class="w"> </span>turtlesim/msg/Pose
+</pre></div>
+</div>
+<p>The <cite>ros2 node info</cite> command displays detailed information about a node. The <cite>Subscribers</cite> section lists all topics the node subscribes to. Here, <cite>/turtlesim</cite> subscribes to the <cite>/turtle1/cmd_vel</cite> topic to receive control commands, with the message interface <cite>geometry_msgs/msg/Twist</cite>.</p>
+<p>Next is the Publishers section, which lists all topics published by this node. The topic to focus on is /turtle1/pose, which publishes the current position and velocity of the turtle. Its message interface is turtlesim/msg/Pose. For now, we’ll ignore the service and action-related information under this topic.</p>
+<p>To subscribe to /turtle1/pose and output the turtle’s real-time pose, enter the command from Code Listing 3-3 in any terminal:</p>
+<p><strong>Listing 3-3: Outputting the Turtle’s Current Pose</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/turtle1/pose
+---
+x:<span class="w"> </span><span class="m">5</span>.544444561004639
+y:<span class="w"> </span><span class="m">5</span>.544444561004639
+theta:<span class="w"> </span><span class="m">0</span>.0
+linear_velocity:<span class="w"> </span><span class="m">0</span>.0
+angular_velocity:<span class="w"> </span><span class="m">0</span>.0
+</pre></div>
+</div>
+<p>The <cite>ros2 topic echo</cite> command prints the data received from the specified topic. Here:
+- <cite>x</cite> and <cite>y</cite> represent the turtle’s position.
+- <cite>theta</cite> is the turtle’s orientation.
+- <cite>linear_velocity</cite> is the turtle’s forward/backward speed (positive for forward, negative for backward).
+- <cite>angular_velocity</cite> is the turtle’s rotational speed (positive for counterclockwise, negative for clockwise).</p>
+<p>Command-line tools make it easy to view topic data and publish data as well. However, before publishing data to a specific topic, you need to determine its message interface. The message interface is like the content type when publishing a post on a public account—you need to confirm whether to publish an image, video, or graphic-text content. Using the command in Code Listing 3-4, you can view the detailed information of a topic.</p>
+<p><strong>Listing 3-4: Viewing Topic Details</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>info<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>-v
+---
+Type:<span class="w"> </span>geometry_msgs/msg/Twist
+Publisher<span class="w"> </span>count:<span class="w"> </span><span class="m">0</span>
+Subscription<span class="w"> </span>count:<span class="w"> </span><span class="m">1</span>
+Node<span class="w"> </span>name:<span class="w"> </span>turtlesim
+Node<span class="w"> </span>namespace:<span class="w"> </span>/
+Topic<span class="w"> </span>type:<span class="w"> </span>geometry_msgs/msg/Twist
+Endpoint<span class="w"> </span>type:<span class="w"> </span>SUBSCRIPTION
+QoS<span class="w"> </span>profile:
+<span class="w">  </span>Reliability:<span class="w"> </span>RELIABLE
+<span class="w">  </span>History<span class="w"> </span><span class="o">(</span>Depth<span class="o">)</span>:<span class="w"> </span>UNKNOWN
+<span class="w">  </span>Durability:<span class="w"> </span>VOLATILE
+<span class="w">  </span>Lifespan:<span class="w"> </span>Infinite
+<span class="w">  </span>Deadline:<span class="w"> </span>Infinite
+<span class="w">  </span>Liveliness:<span class="w"> </span>AUTOMATIC
+<span class="w">  </span>Liveliness<span class="w"> </span>lease<span class="w"> </span>duration:<span class="w"> </span>Infinite
+</pre></div>
+</div>
+<p>The output shows that the message interface is <cite>geometry_msgs/msg/Twist</cite>. To see the detailed definition of this interface, use the command in Listing 3-5.</p>
+<p><strong>Listing 3-5: Viewing Message Interface Definition</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>geometry_msgs/msg/Twist
+---
+<span class="c1"># This expresses velocity in free space broken into its linear and angular parts.</span>
+Vector3<span class="w">  </span>linear
+<span class="w">  </span>float64<span class="w"> </span>x
+<span class="w">  </span>float64<span class="w"> </span>y
+<span class="w">  </span>float64<span class="w"> </span>z
+Vector3<span class="w">  </span>angular
+<span class="w">  </span>float64<span class="w"> </span>x
+<span class="w">  </span>float64<span class="w"> </span>y
+<span class="w">  </span>float64<span class="w"> </span>z
+</pre></div>
+</div>
+<p>The <cite>ros2 interface show</cite> command displays the structure of the message interface. The <cite>geometry_msgs/msg/Twist</cite> interface contains six variables:
+- <cite>linear</cite> represents linear velocity, with <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> components (in meters per second). In ROS, the robot’s forward direction is along the x-axis, so <cite>linear.x</cite> is the forward speed.
+- <cite>angular</cite> represents angular velocity, with <cite>x</cite>, <cite>y</cite>, and <cite>z</cite> components (in radians per second). Since the turtle lives in a 2D world, it can only rotate around the z-axis (vertical axis).
+Now that we understand the message interface, we can publish commands to control the turtle. Use the command in Listing 3-6 to publish a linear velocity.</p>
+<p><strong>Listing 3-6: Publishing Linear Velocity</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 1.0}}&quot;</span>
+---
+publisher:<span class="w"> </span>beginning<span class="w"> </span>loop
+publishing<span class="w"> </span><span class="c1">#1: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=1.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0))</span>
+</pre></div>
+</div>
+<p>When running this command, note the format: braces (<cite>{}</cite>) define the message structure, and a space must follow the colon (<cite>:</cite>). The command continuously publishes the message, setting <cite>linear.x</cite> to 1.0 m/s. Observe the turtle simulator window to see the turtle move forward, as shown in Figure 3-2.</p>
+<figure class="align-center" id="id2">
+<img alt="Turtle Movement Trajectory" src="../../_images/figure3_2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 3-2 Turtle Movement Trajectory</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>To publish angular velocity, you need to modify the value of the <cite>z</cite> variable in <cite>angular</cite>. For example, to give the turtle an angular velocity of 1.0 radians per second, the command is as shown in Code Listing 3-7.</p>
+<p><strong>Listing 3-7: Controlling the Turtle by Publishing Angular Velocity via Command Line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/turtle1/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{angular: {z: 1.0}}&quot;</span>
+---
+</pre></div>
+</div>
+<p>Although it is easy to publish and subscribe to topics in the command line, learning how to use them in programs is necessary for more flexible usage.</p>
+</section>
+
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../chapter3.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../chapter3_2/chapter3_2.html" class="btn btn-neutral float-right" title="3.2 Python Topic Subscription and Publishing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

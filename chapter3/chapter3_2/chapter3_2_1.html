@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.2.1 Publishing Novels via Topics &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.2.2 Subscribing to Novels and Speech Synthesis" href="chapter3_2_2.html" />
+    <link rel="prev" title="3.2 Python Topic Subscription and Publishing" href="chapter3_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_2.html">3.2 Python Topic Subscription and Publishing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.2.1 Publishing Novels via Topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_2_2.html">3.2.2 Subscribing to Novels and Speech Synthesis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_4/chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_5/chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+      <li class="breadcrumb-item active">3.2.1 Publishing Novels via Topics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_2/chapter3_2_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="publishing-novels-via-topics">
+<h1>3.2.1 Publishing Novels via Topics<a class="headerlink" href="#publishing-novels-via-topics" title="Link to this heading"></a></h1>
+<p>Create a chapt3 folder in the home directory and open it with VS Code. Then create a workspace topic_ws in this folder, followed by a src directory under topic_ws. Open a terminal, navigate to src, and execute the command in Code Listing 3-8 to create the demo_python_topic package.</p>
+<p><strong>Listing 3-8: Create an ament_python package with dependencies</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>demo_python_topic<span class="w"> </span>--build-type<span class="w"> </span>ament_python<span class="w"> </span>--dependencies<span class="w"> </span>rclpy<span class="w"> </span>example_interfaces<span class="w"> </span>--license<span class="w"> </span>Apache-2.0
+---
+going<span class="w"> </span>to<span class="w"> </span>create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>package
+package<span class="w"> </span>name:<span class="w"> </span>demo_python_topic
+destination<span class="w"> </span>directory:<span class="w"> </span>/home/fishros/chapt3/topic_ws/src
+package<span class="w"> </span>format:<span class="w"> </span><span class="m">3</span>
+version:<span class="w"> </span><span class="m">0</span>.0.0
+description:<span class="w"> </span>TODO:<span class="w"> </span>Package<span class="w"> </span>description
+maintainer:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;fishros &lt;fishros@todo.todo&gt;&#39;</span><span class="o">]</span>
+licenses:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Apache-2.0&#39;</span><span class="o">]</span>
+build<span class="w"> </span>type:<span class="w"> </span>ament_python
+dependencies:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;rclpy&#39;</span>,<span class="w"> </span><span class="s1">&#39;std_msgs&#39;</span><span class="o">]</span>
+...
+</pre></div>
+</div>
+<p>In code listing 3-8, the command to create the functional package is slightly different from before. By adding <cite>–dependencies rclpy example_interfaces</cite>, it includes the dependencies <cite>rclpy</cite> and <cite>example_interfaces</cite>, where <cite>example_interfaces</cite> is the message interface to be used next. At this point, if you open the package manifest file <cite>package.xml</cite>, you will notice that the dependency items for <cite>rclpy</cite> and <cite>example_interfaces</cite> have been automatically added.</p>
+<p>After creating the package, create a novel_pub_node.py file in src/demo_python_topic/demo_python_topic and write the code shown in Code Listing 3-9.</p>
+<p><strong>Listing 3-9: src/demo_python_topic/demo_python_topic/novel_pub_node.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">example_interfaces.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NovelPubNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span> <span class="c1"># Create queue for novel content</span>
+        <span class="c1"># Create publisher for novel topic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">novel_publisher_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">String</span><span class="p">,</span> <span class="s1">&#39;novel&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span> <span class="c1"># Create timer</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">download_novel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Download complete: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span> <span class="c1"># Split by lines into queue</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span><span class="o">.</span><span class="n">qsize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># If queue has data, publish a line</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="n">String</span><span class="p">()</span> <span class="c1"># Instantiate message</span>
+            <span class="n">msg</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">novels_queue_</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="c1"># Assign value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">novel_publisher_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="c1"># Publish message</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Published novel line: </span><span class="si">{</span><span class="n">msg</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">NovelPubNode</span><span class="p">(</span><span class="s1">&#39;novel_pub&#39;</span><span class="p">)</span>
+    <span class="n">node</span><span class="o">.</span><span class="n">download_novel</span><span class="p">(</span><span class="s1">&#39;http://localhost:8000/novel1.txt&#39;</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Code Listing 3-9 first imports rclpy libraries and the requests library for HTTP downloads. Since novels consist of text, it imports the String interface from example_interfaces. The interface definition can be viewed via command line as shown in Code Listing 3-10.</p>
+<p><strong>Listing 3-10: View example_interfaces/msg/String interface definition</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>example_interfaces/msg/String
+---
+<span class="c1"># This is an example message of using a primitive datatype, string.</span>
+<span class="c1"># If you want to test with this that&#39;s fine, but if you are deploying</span>
+<span class="c1"># it into a system you should create a semantically meaningful message type.</span>
+<span class="c1"># If you want to embed it in another message, use the primitive data type instead.</span>
+string<span class="w"> </span>data
+</pre></div>
+</div>
+<p>From the results in code listing 3-10, we can see that this interface contains a data field of type <cite>string</cite> named <cite>data</cite>, which we can use to represent text.</p>
+<p>After importing the necessary libraries in code listing 3-9, a <cite>NovelPubNode</cite> node is defined. In its <cite>__init__</cite> method, a queue is created to store the paragraphs of the novel to be published. Then, <cite>self.create_publisher(String, “novel”, 10)</cite> is called to create a topic publisher. This method takes three parameters:
+1. The first, <cite>String</cite>, is the interface type of the topic, using the <cite>String</cite> imported earlier from <cite>example_interfaces.msg</cite>.
+2. The second parameter is the name of the topic.
+3. The third parameter is related to ROS 2’s Quality of Service (QoS) policy, which will be discussed in detail in Chapter 10 of this book. For now, you only need to know that <cite>10</cite> represents the queue length for storing historical messages.</p>
+<p>After creating the publisher, <cite>self.create_timer(5, self.timer_callback)</cite> is called to create a timer, where the first parameter is the period (in seconds), and the second is the callback function. Once set up, the node will call the <cite>timer_callback</cite> function every 5 seconds.</p>
+<p>The node provides a download_novel method externally, which takes the URL of the novel as a parameter. This method uses the requests library to download the novel, splits it into lines, and then places them into the queue by calling the put method of <a href="#id1"><span class="problematic" id="id2">novels_queue_</span></a>.</p>
+<p>Finally, there is the timer_callback method. If it detects that the novel queue has content (length &gt; 0), it creates a String-type message object (msg), retrieves a piece of data from the queue, assigns it to the data attribute of msg, and then publishes the message using the publisher.</p>
+<p>In the <cite>main</cite> function, the node is instantiated. First, <cite>download_novel</cite> is called to fetch the novel, followed by <cite>spin</cite> to keep the node running.</p>
+<p>In <cite>setup.py</cite>, <cite>novel_pub_node</cite> is registered. After running the Python local server introduced in Section 2.5.3 and adding a few more lines to the novel, rebuild the project and run <cite>novel_pub_node</cite>. The command and its output are shown in code listing 3-11.</p>
+<p><strong>Listing 3-11: Run novel_pub_node</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>demo_python_topic<span class="w"> </span>novel_pub_node
+---
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681459937</span>.288372889<span class="o">]</span><span class="w"> </span><span class="o">[</span>novel_pub<span class="o">]</span>:<span class="w"> </span>Download<span class="w"> </span>complete:<span class="w"> </span>http://localhost:8000/novel1.txt
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681459939</span>.501703634<span class="o">]</span><span class="w"> </span><span class="o">[</span>novel_pub<span class="o">]</span>:<span class="w"> </span>Published<span class="w"> </span>novel<span class="w"> </span>line:<span class="w"> </span>Chapter<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>The<span class="w"> </span>youth<span class="w"> </span>embarks<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span>of<span class="w"> </span>cultivation,<span class="w"> </span>exiled<span class="w"> </span><span class="k">for</span><span class="w"> </span>his<span class="w"> </span>Zhuxian<span class="w"> </span>power.
+<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1681459944</span>.507272228<span class="o">]</span><span class="w"> </span><span class="o">[</span>novel_pub<span class="o">]</span>:<span class="w"> </span>Published<span class="w"> </span>novel<span class="w"> </span>line:<span class="w"> </span>In<span class="w"> </span>an<span class="w"> </span>ancient<span class="w"> </span>village<span class="w"> </span>lived<span class="w"> </span>a<span class="w"> </span>young<span class="w"> </span>man.
+</pre></div>
+</div>
+<p>TIt appears that the novel has been successfully downloaded and published, but to confirm whether it has actually been published, you need to test it via the command line. Open a new terminal and enter the command in Listing 3-12.</p>
+<p><strong>Listing 3-12: View topic list</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w"> </span>-v
+---
+Published<span class="w"> </span>topics:
+<span class="w"> </span>*<span class="w"> </span>/novel<span class="w"> </span><span class="o">[</span>std_msgs/msg/String<span class="o">]</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>publisher
+...
+</pre></div>
+</div>
+<p>The -v flag shows detailed information including the /novel topic. Use Code Listing 3-13 to view real-time topic content.</p>
+<p><strong>Listing 3-13: Print novel topic data via command line</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/novel
+---
+data:<span class="w"> </span>This<span class="w"> </span>ancient<span class="w"> </span>village<span class="w"> </span>was<span class="w"> </span>nestled<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>quiet<span class="w"> </span>valley,<span class="w"> </span>surrounded<span class="w"> </span>by<span class="w"> </span>lush<span class="w"> </span>forests<span class="w"> </span>and<span class="w"> </span>tranquil<span class="w"> </span>streams.
+---
+data:<span class="w"> </span>The<span class="w"> </span>young<span class="w"> </span>man<span class="err">&#39;</span>s<span class="w"> </span>name<span class="w"> </span>was<span class="w"> </span>Li<span class="w"> </span>Ming,<span class="w"> </span>who<span class="w"> </span>had<span class="w"> </span>lived<span class="w"> </span><span class="k">in</span><span class="w"> </span>this<span class="w"> </span>village<span class="w"> </span><span class="k">for</span><span class="w"> </span>sixteen<span class="w"> </span>years.
+</pre></div>
+</div>
+<p>While reading novels in the terminal is interesting, having the computer read them aloud would be better. Next, we’ll attempt to subscribe to the novel topic and synthesize speech.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_2.html" class="btn btn-neutral float-left" title="3.2 Python Topic Subscription and Publishing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chapter3_2_2.html" class="btn btn-neutral float-right" title="3.2.2 Subscribing to Novels and Speech Synthesis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

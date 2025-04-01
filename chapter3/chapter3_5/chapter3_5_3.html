@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.5.3 Learning to Use Git Ignore Files &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5cb08e4e"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.6 Chapter Summary and Review" href="../chapter3_6/chapter3_6.html" />
+    <link rel="prev" title="3.5.2 Learning to Commit Code" href="chapter3_5_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../chapter3.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_1/chapter3_1.html">3.1 Introduction to Topic Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_2/chapter3_2.html">3.2 Python Topic Subscription and Publishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_3/chapter3_3.html">3.3 Topic Publishing and Subscribing in C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_4/chapter3_4.html">3.4 Best Practices for Topic Communication</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="chapter3_5_1.html">3.5.1 Creating a Code Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chapter3_5_2.html">3.5.2 Learning to Commit Code</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.5.3 Learning to Use Git Ignore Files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3_6/chapter3_6.html">3.6 Chapter Summary and Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+          <li class="breadcrumb-item"><a href="chapter3_5.html">3.5 ROS 2 Basics: Introduction to Git</a></li>
+      <li class="breadcrumb-item active">3.5.3 Learning to Use Git Ignore Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter3/chapter3_5/chapter3_5_3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="learning-to-use-git-ignore-files">
+<h1>3.5.3 Learning to Use Git Ignore Files<a class="headerlink" href="#learning-to-use-git-ignore-files" title="Link to this heading"></a></h1>
+<p>Compared to adding directories or files one by one using the <cite>git add</cite> command, using <cite>git add .</cite> is much more convenient. However, in a project, there may be files or directories that you do not want to commit, and you do not want to manually exclude them one by one. This is where the Git ignore file comes in handy.</p>
+<p>Create a new file named <cite>.gitignore</cite> in the <cite>topic_practice_ws</cite> directory, and then list the directories or files you want to ignore in this file. Here, we will add the directories generated during the ROS 2 build process. The final content of the file is shown in Code Listing 3-54.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>**Code Listing 3-54: topic_practice_ws/.gitignore**
+
+build/
+install/
+log/
+</pre></div>
+</div>
+<p>After creating the <cite>.gitignore</cite> file, commit it to the repository. It is a good practice to frequently commit your changes. Enter the commands in Code Listing 3-55 in the terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>**Code<span class="w"> </span>Listing<span class="w"> </span><span class="m">3</span>-55:<span class="w"> </span>Committing<span class="w"> </span>the<span class="w"> </span>.gitignore<span class="w"> </span>File**
+
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.gitignore
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add Git ignore file&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>---
+[master 3071f21] Add Git ignore file
+3 files changed, 98 insertions(+)
+create mode 100644 .gitignore
+</pre></div>
+</div>
+<p>After committing the <cite>.gitignore</cite> file, test whether it works by trying to add and commit files again. Enter the commands in Code Listing 3-56 in the terminal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>**Code<span class="w"> </span>Listing<span class="w"> </span><span class="m">3</span>-56:<span class="w"> </span>Testing<span class="w"> </span><span class="k">if</span><span class="w"> </span>.gitignore<span class="w"> </span>Works**
+
+$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
+$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Test commit temporary directories&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>---
+On branch master
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>The prompt indicates that the <cite>install</cite>, <cite>build</cite>, and <cite>log</cite> directories have been successfully ignored. In addition to ignoring specific directories and files, the <cite>.gitignore</cite> file can also use the wildcard <code class="docutils literal notranslate"><span class="pre">*</span></code> to ignore a category of files. For example, adding <cite>*.log</cite> to the <cite>.gitignore</cite> file will ignore all files with the <cite>.log</cite> extension.</p>
+<p>That concludes our introduction to Git for now. Although we have only covered a few basic commands, you have already learned the fundamental usage of Git. We will continue to explore more Git features in the future. Now, let’s summarize this chapter.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="chapter3_5_2.html" class="btn btn-neutral float-left" title="3.5.2 Learning to Commit Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../chapter3_6/chapter3_6.html" class="btn btn-neutral float-right" title="3.6 Chapter Summary and Review" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
