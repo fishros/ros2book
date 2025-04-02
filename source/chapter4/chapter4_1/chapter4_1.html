@@ -1,0 +1,127 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.1 Introduction to Topic Communication &mdash; Hands-On ROS 2 for Robotics Programming v1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b30c7235"></script>
+      <script src="../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Hands-On ROS 2 for Robotics Programming
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter1/index.html">Chapter 1: Get-Started —— Bringing Your First Robot to Life</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter2/index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapter3/index.html">Chapter 3. Subscribing and Publishing—Exploring Topic Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Chapter 2. Getting Started with ROS 2 Basics—Starting with the First Node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Hands-On ROS 2 for Robotics Programming</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">4.1 Introduction to Topic Communication</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/chapter4/chapter4_1/chapter4_1.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction-to-topic-communication">
+<h1>4.1 Introduction to Topic Communication<a class="headerlink" href="#introduction-to-topic-communication" title="Permalink to this heading"></a></h1>
+<p>In the world of robotics, while topics enable unidirectional data transfer, there are scenarios requiring bidirectional communication. For instance, one node might send an image request to another node for recognition, and the receiving node needs to return the recognition results to the requester. Service communication serves as the solution in ROS 2 for this interaction pattern.</p>
+<p>When developing the speech synthesis node in Chapter 3, we hardcoded the speech language to Chinese. Modifying this language setting would require source code changes. However, in actual robot development, nodes often contain numerous parameters needing dynamic adjustment - embedding all these in code becomes difficult to manage and modify dynamically. How can this be resolved? This is where parameter communication becomes essential.</p>
+<div class="toctree-wrapper compound">
+</div>
+<figure class="align-center" id="id1">
+<img alt="Install Plugin" src="../../_images/figure4-1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 4-1 Install Plugin</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>4.1 Service and Parameter Communication
+Service Communication</p>
+<p>Services implement a request-response bidirectional communication mechanism, where:</p>
+<blockquote>
+<div><p>A client node sends a request</p>
+<p>A server node processes the request and returns a response</p>
+<p>Typical use cases: device control, algorithm triggering, etc.</p>
+</div></blockquote>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, fishros.org.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
