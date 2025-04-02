@@ -47,7 +47,7 @@ On the first startup, you will see the selection interface shown in Figure 1-10.
 
     Figure 1-11 Installer Interface
 
-As shown in Figure 1-12, select "Chinese (Simplified)" on the installer's language selection interface, and then click "Install Ubuntu." On the keyboard layout page, click "Continue" again to proceed to the interface shown in Figure 1-13. Here, choose "Minimal Installation" and uncheck the option to download updates during installation. Then, click "Continue" to proceed to the installation type page.
+As shown in Figure 1-12, select your preferred language on the installer's language selection interface, and then click "Install Ubuntu." On the keyboard layout page, click "Continue" again to proceed to the interface shown in Figure 1-13. Here, choose "Minimal Installation" and uncheck the option to download updates during installation. Then, click "Continue" to proceed to the installation type page.
 
 .. figure:: figure1-12.png
     :alt: Select Language
