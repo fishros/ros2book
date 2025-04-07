@@ -14,9 +14,10 @@ Robot development is a complex system engineering task. ROS 2 offers strong supp
 
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 6
    :caption: Contents:
 
+   Introduce
    chapter1/index
    chapter2/index
    chapter3/index
